@@ -2,13 +2,14 @@ import React from 'react';
 
 const Descripcion = () => {
   return (
-    <div>
-      <h1>
+    <div className='p-4 flex flex-col'>
+      <h1 className='font-bold text-2xl'>
         Canon EOS R6 - Cámara sin Espejo de Marco Completo + Lente RF24-105mm F4
         L IS USM
       </h1>
-      <span>Marca: Canon</span>
-      <div>
+      <span className='text-emerald-400 py-3 '>Marca: Canon</span>
+      <hr />
+      <div className=''>
         <p>Precio:</p>
         <p>$100,669.00</p>
         <p>
@@ -25,6 +26,7 @@ const Descripcion = () => {
       <span>
         Precio: <strong>Negro</strong>{' '}
       </span>
+      <hr />
       <span>
         Precio: <strong>24-105mm USM Kit</strong>{' '}
       </span>

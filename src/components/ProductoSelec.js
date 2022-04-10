@@ -18,10 +18,10 @@ const ProductoSelec = () => {
           {' '}
           <MinFotos />{' '}
         </div>
-        <div className='border-2 border-blue-900 w-6/12 flex justify-center items-center'>
+        <div className='border-2 border-blue-900 w-5/12 flex justify-center items-center'>
           <ImgSelect />
         </div>
-        <div className='border-2 border-blue-900 w-3/12'>
+        <div className='border-2 border-blue-900 w-4/12'>
           <Descripcion />
         </div>
         <div className='border-2 border-blue-900 w-2/12'>
