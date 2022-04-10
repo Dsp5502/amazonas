@@ -3,7 +3,7 @@ import NavBar from './NavBar';
 
 const Product = () => {
   return (
-    <div className='container  mx-auto border-2 border-red-800'>
+    <div className='container  mx-auto '>
       <NavBar />
     </div>
   );
