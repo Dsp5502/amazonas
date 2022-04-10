@@ -10,7 +10,7 @@ import React from 'react';
 
 const NavBar = () => {
   return (
-    <div className=' bg-black h-28 md:h-20 text-white flex  justify-between items-center px-4 py-2 pt-2'>
+    <div className=' bg-black h-28 lg:h-20 text-white flex  justify-between items-center px-4 py-2 pt-2'>
       <div className=' h-12 mr-4 flex items-center  self-start md:hidden'>
         <FontAwesomeIcon className='text-xl ' icon={faBars} />
       </div>
@@ -22,8 +22,8 @@ const NavBar = () => {
           alt='amazonas'
         />
       </div>
-      <div className=' hidden md:flex flex-col justify-center '>
-        <span className='mx-10'>Hola</span>
+      <div className='bg-black  absolute w-full md:w-fit md:relative flex md:flex-col justify-center self-end md:self-center top-28 md:top-0 left-0  py-1 md:py-0 '>
+        <span className='hidden md:inline-block mx-10'>Hola</span>
         <div className='mx-5 font-bold'>
           <FontAwesomeIcon icon={faLocationDot} />
           <span className='ml-2'>Elige tu dirección</span>
