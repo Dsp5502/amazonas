@@ -1,4 +1,5 @@
 import React from 'react';
+import Historial from './HistorialBusqueda/Historial';
 import NavBar from './NavBar';
 import ProductoSelec from './ProductoSelec';
 import ProductRelacion from './ProductRelacion';
@@ -13,6 +14,7 @@ const Product = () => {
       <SubNavBar2 />
       <ProductoSelec />
       <ProductRelacion />
+      <Historial />
     </div>
   );
 };
