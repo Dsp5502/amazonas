@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from './NavBar';
 import ProductoSelec from './ProductoSelec';
+import ProductRelacion from './ProductRelacion';
 import SubNavBar from './SubNavBar';
 import SubNavBar2 from './SubNavBar2';
 
@@ -11,6 +12,7 @@ const Product = () => {
       <SubNavBar />
       <SubNavBar2 />
       <ProductoSelec />
+      <ProductRelacion />
     </div>
   );
 };
