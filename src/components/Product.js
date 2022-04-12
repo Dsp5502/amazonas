@@ -1,6 +1,8 @@
 import React from 'react';
+import Footerfin from './Footerfin';
 import Historial from './HistorialBusqueda/Historial';
 import NavBar from './NavBar';
+import Opiniones from './OpinionesClientes/Opiniones';
 import ProductoSelec from './ProductoSelec';
 import ProductRelacion from './ProductRelacion';
 import SubNavBar from './SubNavBar';
@@ -15,6 +17,8 @@ const Product = () => {
       <ProductoSelec />
       <ProductRelacion />
       <Historial />
+      <Opiniones />
+      <Footerfin />
     </div>
   );
 };

@@ -3,9 +3,10 @@ import React from 'react';
 const Cards = () => {
   return (
     <>
-      <h1 className='font-semibold text-xl md:text-3xl'>
+      <h1 className='font-semibold text-xl md:text-3xl mb-5'>
         Productos relacionados con este artículo
       </h1>
+      <hr />
       <div className='flex flex-col  md:flex-row p-4 '>
         <div className=' w-full md:w-3/12  p-4'>
           <img
