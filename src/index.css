@@ -14,3 +14,7 @@ body {
   font-family: Poppins, sans-serif !important;
   font-weight: 600;
 }
+
+.borderEnvio {
+  border: 1px solid black !important;
+}
