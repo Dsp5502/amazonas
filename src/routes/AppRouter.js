@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import CrearCuenta from '../components/CrearCuenta';
 import Login from '../components/Login';
 import Product from '../components/Product';
+import AllProductos from '../components/TodosProductos/AllProductos';
 
 const AppRouter = () => {
   return (
@@ -10,6 +11,7 @@ const AppRouter = () => {
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/product' element={<Product />} />
+        <Route path='/productos' element={<AllProductos />} />
         <Route path='/registrarse' element={<CrearCuenta />} />
         <Route path='/*' element={<Navigate to='/' />} />
       </Routes>

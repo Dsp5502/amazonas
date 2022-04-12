@@ -3,14 +3,10 @@ import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import FooterInicio from './FooterInicio';
 import { FormLogin } from './FormLogin';
 
 const Login = () => {
-  const navigate = useNavigate();
-  const entrar = () => {
-    console.log('hola');
-    navigate('/product');
-  };
   return (
     <div className=' w-full  flex  flex-col justify-center items-center h-screen mx-auto mt-5'>
       <div className='w-1/4  h-5/6 flex flex-col items-center justify-center '>
@@ -64,23 +60,7 @@ const Login = () => {
           </button>
         </div>
       </div>
-      <footer className='border-2 border-green-500 h-1/6 w-full '>
-        <div className='border-2 border-yellow-500 w-1/3 mx-auto text-sm'>
-          <ul>
-            <li>Condiciones de uso</li>
-            <li>Aviso de privacidad</li>
-            <li>Ayudar</li>
-          </ul>
-          <span>© 1996-2002, Amazonas.com, Inc. o sus afiliados </span>
-          <button
-            onClick={() => {
-              entrar();
-            }}
-          >
-            entrar
-          </button>
-        </div>
-      </footer>
+      <FooterInicio />
     </div>
   );
 };

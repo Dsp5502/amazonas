@@ -70,7 +70,7 @@ const FormCrearCuenta = () => {
           </label>
           <Field
             name='password'
-            placeholder='Ingresa tu contraseña'
+            placeholder='Minimo 5 caracteres'
             type='password'
             className='borderEnvio rounded-sm'
           />
@@ -82,7 +82,7 @@ const FormCrearCuenta = () => {
           </label>
           <Field
             name='password2'
-            placeholder='ReIngresa tu contraseña'
+            placeholder='Re Ingresa tu contraseña'
             type='password'
             className='borderEnvio rounded-sm'
           />

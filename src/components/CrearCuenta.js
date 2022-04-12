@@ -1,4 +1,5 @@
 import React from 'react';
+import FooterInicio from './FooterInicio';
 import FormCrearCuenta from './FormCrearCuenta';
 
 const CrearCuenta = () => {
@@ -26,16 +27,7 @@ const CrearCuenta = () => {
           <span className='text-blue-500 text-sm '>¿Necesitas ayuda?</span>
         </div>
       </div>
-      <footer className='border-2 border-green-500 h-1/6 w-full '>
-        <div className='border-2 border-yellow-500 w-1/3 mx-auto text-sm'>
-          <ul>
-            <li>Condiciones de uso</li>
-            <li>Aviso de privacidad</li>
-            <li>Ayudar</li>
-          </ul>
-          <span>© 1996-2002, Amazonas.com, Inc. o sus afiliados </span>
-        </div>
-      </footer>
+      <FooterInicio />
     </div>
   );
 };
