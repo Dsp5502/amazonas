@@ -2,6 +2,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CrearCuenta from '../components/CrearCuenta';
+import AdminLogin from '../components/CRUDProduct/AdminLogin';
 import Login from '../components/Login';
 import DashRoutersRoute from './DashRoutersRoute';
 import PrivateRouters from './PrivateRoutes';
@@ -46,6 +47,14 @@ const AppRouter = () => {
           element={
             <PublicRouters isLoggedIn={isLoggedIn}>
               <CrearCuenta />
+            </PublicRouters>
+          }
+        />
+        <Route
+          path='/admin'
+          element={
+            <PublicRouters isLoggedIn={isLoggedIn}>
+              <AdminLogin />
             </PublicRouters>
           }
         />

@@ -35,7 +35,7 @@ export const FormLogin = () => {
       }}
     >
       {({ errors, touched }) => (
-        <Form className='flex flex-col'>
+        <Form className='flex flex-col '>
           <label htmlFor='' className='font-bold text-sm'>
             Correo electrónico
           </label>

@@ -13,3 +13,8 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+//TODO:
+//1. Crear una nueva ruta para el admin
+//2. crear collection de productos
+//3. revisar bien el responsive

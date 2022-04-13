@@ -21,7 +21,7 @@ const Login = () => {
   };
   return (
     <div className=' w-full  flex  flex-col justify-center items-center h-screen mx-auto mt-5'>
-      <div className='w-1/4  h-5/6 flex flex-col items-center justify-center '>
+      <div className=' w-2/3 md:w-1/4   h-5/6 flex flex-col items-center justify-center '>
         <div className=' mr-2 md:mr-0 mt-2 md:mt-0 flex flex-col  justify-center  items-center my-5'>
           <h1 className='text-sm md:text-2xl fontLogo '>Amazonas</h1>
           <img
@@ -73,6 +73,7 @@ const Login = () => {
               Crea tu cuenta de Amazonas
             </button>
           </Link>
+          <Link to='/admin'>AdminLogin</Link>
         </div>
       </div>
       <FooterInicio />
