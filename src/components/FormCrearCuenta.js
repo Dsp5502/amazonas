@@ -1,6 +1,8 @@
 import { Field, Form, Formik } from 'formik';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
+import { registerSync } from '../Redux/actions/actionResgiter';
 
 const SignupSchema = Yup.object().shape({
   nombre: Yup.string()
@@ -25,6 +27,10 @@ const SignupSchema = Yup.object().shape({
 });
 
 const FormCrearCuenta = () => {
+  const dispatch = useDispatch();
+  const handleSubmit = ({ email, password, nombre }) => {
+    dispatch(registerSync(email, password, nombre));
+  };
   return (
     <Formik
       initialValues={{
@@ -35,8 +41,7 @@ const FormCrearCuenta = () => {
       }}
       validationSchema={SignupSchema}
       onSubmit={(values) => {
-        // same shape as initial values
-        console.log(values);
+        handleSubmit(values);
       }}
     >
       {({ errors, touched, handleReset }) => (

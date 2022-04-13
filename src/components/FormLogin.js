@@ -1,6 +1,8 @@
 import { Field, Form, Formik } from 'formik';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
+import { loginSync } from '../Redux/actions/actionLogin';
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string()
@@ -15,6 +17,12 @@ const SignupSchema = Yup.object().shape({
 });
 
 export const FormLogin = () => {
+  const dispatch = useDispatch();
+
+  const handleSubmit = (values) => {
+    dispatch(loginSync(values));
+    console.log(values);
+  };
   return (
     <Formik
       initialValues={{
@@ -23,11 +31,10 @@ export const FormLogin = () => {
       }}
       validationSchema={SignupSchema}
       onSubmit={(values) => {
-        // same shape as initial values
-        console.log(values);
+        handleSubmit(values);
       }}
     >
-      {({ errors, touched, handleReset }) => (
+      {({ errors, touched }) => (
         <Form className='flex flex-col'>
           <label htmlFor='' className='font-bold text-sm'>
             Correo electrónico
