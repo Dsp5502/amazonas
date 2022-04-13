@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from '../../hooks/useForm';
 import uuid from 'react-uuid';
+import { FileUp } from '../../helpers/FileUp';
 
 const ProductFormAdd = () => {
   const [values, handleInputChange, reset] = useForm({
@@ -21,8 +22,17 @@ const ProductFormAdd = () => {
   };
 
   const handleFileChange = (e) => {
-    console.log(e.target.files[0]);
-    values.foto1 = e.target.files[0].name;
+    const file = e.target.files[0];
+    console.log(file);
+
+    FileUp(file)
+      .then((resp) => {
+        values.foto1 = resp;
+        console.log(resp);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
   };
 
   return (
