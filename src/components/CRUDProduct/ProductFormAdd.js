@@ -2,6 +2,8 @@ import React from 'react';
 import { useForm } from '../../hooks/useForm';
 import uuid from 'react-uuid';
 import { FileUp } from '../../helpers/FileUp';
+import { useDispatch } from 'react-redux';
+import { addProductAsync } from '../../Redux/actions/actionProduct';
 
 const ProductFormAdd = () => {
   const [values, handleInputChange, reset] = useForm({
@@ -13,11 +15,13 @@ const ProductFormAdd = () => {
     id: uuid(),
   });
 
+  const dispatch = useDispatch();
   const { nombre, descripcion, categorias, precio, foto1 } = values;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(values);
+    dispatch(addProductAsync(values));
     reset();
   };
 

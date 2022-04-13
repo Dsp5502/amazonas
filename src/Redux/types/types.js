@@ -6,3 +6,9 @@ export const typesLogin = {
 export const typesRegister = {
   register: 'register',
 };
+
+export const typesProduct = {
+  addProduct: 'addProduct',
+  deleteProduct: 'deleteProduct',
+  updateProduct: 'updateProduct',
+};
