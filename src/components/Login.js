@@ -2,11 +2,18 @@ import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { loginGoogle } from '../Redux/actions/actionLogin';
+
 import FooterInicio from './FooterInicio';
 import { FormLogin } from './FormLogin';
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const handleGoogle = () => {
+    dispatch(loginGoogle());
+    console.log('Google');
+  };
   return (
     <div className=' w-full  flex  flex-col justify-center items-center h-screen mx-auto mt-5'>
       <div className='w-1/4  h-5/6 flex flex-col items-center justify-center '>
@@ -23,8 +30,9 @@ const Login = () => {
           <FormLogin />
           <div className='w-full flex mb-1'>
             <button
-              type='submit'
+              type='button'
               className='w-1/2  mr-2 rounded-sm text-white bg-red-600 py-1'
+              onClick={handleGoogle}
             >
               <FontAwesomeIcon icon={faGoogle} />
             </button>
