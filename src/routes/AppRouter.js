@@ -1,17 +1,21 @@
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Checking from '../components/Checking';
 import CrearCuenta from '../components/CrearCuenta';
 import AdminLogin from '../components/CRUDProduct/AdminLogin';
+import FormAddProduct from '../components/CRUDProduct/FormAddProduct';
 import Login from '../components/Login';
+import AdminRouters from './AdminRouters';
 import DashRoutersRoute from './DashRoutersRoute';
 import PrivateRouters from './PrivateRoutes';
-
 import PublicRouters from './PublicRouters';
 
 const AppRouter = () => {
   const [checking, setChecking] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAdminLog, setIsAdminLog] = useState(false);
+  const [isAdminLogOut, setIsAdminLogOut] = useState(true);
 
   useEffect(() => {
     const auth = getAuth();
@@ -28,7 +32,7 @@ const AppRouter = () => {
   }, [setIsLoggedIn, setChecking]);
 
   if (checking) {
-    return <div>Checking...</div>;
+    return <Checking />;
   }
 
   return (
@@ -54,8 +58,17 @@ const AppRouter = () => {
           path='/admin'
           element={
             <PublicRouters isLoggedIn={isLoggedIn}>
-              <AdminLogin />
+              <AdminLogin setIsAdminLog={setIsAdminLog} />
             </PublicRouters>
+          }
+        />
+
+        <Route
+          path='/addProduct'
+          element={
+            <AdminRouters isAdminLog={isAdminLog}>
+              <FormAddProduct />
+            </AdminRouters>
           }
         />
 

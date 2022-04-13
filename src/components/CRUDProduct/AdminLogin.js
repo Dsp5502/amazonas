@@ -1,7 +1,7 @@
 import React from 'react';
-import { FormLogin } from '../FormLogin';
+import { FormLoginAdmin } from './FormAdminLogin';
 
-const AdminLogin = () => {
+const AdminLogin = ({ setIsAdminLog }) => {
   return (
     <div className=' w-full  flex  flex-col justify-center items-center h-screen mx-auto mt-5'>
       <div className='w-1/4  h-5/6 flex flex-col items-center justify-center '>
@@ -14,8 +14,8 @@ const AdminLogin = () => {
           />
         </div>
         <div className='borderEnvio w-full  flex flex-col px-5 py-2'>
-          <h2 className=' text-xl mb-1'>Ingresar</h2>
-          <FormLogin />
+          <h2 className=' text-xl mb-1'>Ingresar Admin</h2>
+          <FormLoginAdmin setIsAdminLog={setIsAdminLog} />
         </div>
       </div>
     </div>
