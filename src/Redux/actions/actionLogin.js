@@ -1,4 +1,9 @@
-import { getAuth, signInWithPopup } from 'firebase/auth';
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+} from 'firebase/auth';
 import { google } from '../../Firebase/fireBaseConfig';
 import { typesLogin } from '../types/types';
 
@@ -14,6 +19,19 @@ export const loginSync = (email, password) => {
 };
 
 //* Login Asincronico
+export const loginAsync = (email, password) => {
+  return async (dispatch) => {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then(({ user }) => {
+        dispatch(loginSync(user.email, user.password));
+        console.log('Usuario Logueado');
+      })
+      .catch((error) => {
+        console.log(error, 'No autorizado');
+      });
+  };
+};
 
 //* Login google
 export const loginGoogle = () => {
@@ -26,6 +44,28 @@ export const loginGoogle = () => {
       })
       .catch((error) => {
         console.warn(error, 'No autorizado');
+      });
+  };
+};
+
+//* Logout Synchronous
+export const logoutSync = () => {
+  return {
+    type: typesLogin.logout,
+  };
+};
+
+//* Logout ASynchronous
+export const logoutAsync = () => {
+  return async (dispatch) => {
+    const auth = getAuth();
+    signOut(auth)
+      .then(({ user }) => {
+        dispatch(logoutSync());
+        console.log('Usuario deslogueado');
+      })
+      .catch((error) => {
+        console.log(error, 'No deslogueado');
       });
   };
 };

@@ -1,5 +1,6 @@
 import {
   faAngleDown,
+  faArrowRightFromBracket,
   faBars,
   faCartShopping,
   faLocationDot,
@@ -7,8 +8,18 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { logoutAsync } from '../Redux/actions/actionLogin';
 
 const NavBar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(logoutAsync());
+    navigate('/login');
+  };
   return (
     <div className=' bg-black h-28 lg:h-20 text-white flex  justify-between items-center px-4 py-2 pt-2'>
       <div className=' h-12 mr-4 flex items-center  self-start md:hidden'>
@@ -59,10 +70,11 @@ const NavBar = () => {
         </div>
       </div>
       <div className=' hidden md:flex flex-col justify-center '>
-        <span className='mx-5'>Devoluciones</span>
-        <div className='mx-5 font-bold'>
-          <span className='mr-2'>Y pedidos</span>
-        </div>
+        <FontAwesomeIcon
+          className='text-white rounded-r-full'
+          icon={faArrowRightFromBracket}
+          onClick={handleLogout}
+        />
       </div>
       <div className='h-6  md:h-12 self-start mt-3 md:mt-0    flex  md:self-center'>
         <FontAwesomeIcon className='h-4 md:h-8' icon={faCartShopping} />

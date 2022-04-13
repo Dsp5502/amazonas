@@ -2,7 +2,7 @@ import { Field, Form, Formik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-import { loginSync } from '../Redux/actions/actionLogin';
+import { loginAsync } from '../Redux/actions/actionLogin';
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string()
@@ -19,9 +19,9 @@ const SignupSchema = Yup.object().shape({
 export const FormLogin = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = (values) => {
-    dispatch(loginSync(values));
-    console.log(values);
+  const handleSubmit = ({ email, password }) => {
+    console.log(email, password);
+    dispatch(loginAsync(email, password));
   };
   return (
     <Formik
