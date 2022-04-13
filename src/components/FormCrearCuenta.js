@@ -41,11 +41,17 @@ const FormCrearCuenta = () => {
         password2: '',
       }}
       validationSchema={SignupSchema}
-      onSubmit={(values) => {
+      onSubmit={(values, { resetForm }) => {
         handleSubmit(values);
+        resetForm({
+          nombre: '',
+          email: '',
+          password: '',
+          password2: '',
+        });
       }}
     >
-      {({ errors, touched, handleReset }) => (
+      {({ errors, touched }) => (
         <Form className='flex flex-col'>
           <label htmlFor='' className='font-bold text-sm'>
             Nombre
