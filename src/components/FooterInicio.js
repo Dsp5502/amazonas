@@ -2,11 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const FooterInicio = () => {
-  const navigate = useNavigate();
-  const entrar = () => {
-    console.log('hola');
-    navigate('/productos');
-  };
   return (
     <footer className=' h-1/6 w-full bg-gray-100 '>
       <hr />
@@ -19,13 +14,6 @@ const FooterInicio = () => {
         <span className='text-xs mx-5 '>
           © 1996-2002, Amazonas.com, Inc. o sus afiliados{' '}
         </span>
-        <button
-          onClick={() => {
-            entrar();
-          }}
-        >
-          entrar
-        </button>
       </div>
     </footer>
   );

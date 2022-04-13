@@ -3,7 +3,8 @@ import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { loginGoogle } from '../Redux/actions/actionLogin';
+import { Link } from 'react-router-dom';
+import { loginFacebook, loginGoogle } from '../Redux/actions/actionLogin';
 
 import FooterInicio from './FooterInicio';
 import { FormLogin } from './FormLogin';
@@ -13,6 +14,10 @@ const Login = () => {
   const handleGoogle = () => {
     dispatch(loginGoogle());
     console.log('Google');
+  };
+  const handleFacebook = () => {
+    dispatch(loginFacebook());
+    console.log('Facebook');
   };
   return (
     <div className=' w-full  flex  flex-col justify-center items-center h-screen mx-auto mt-5'>
@@ -39,6 +44,7 @@ const Login = () => {
             <button
               type='submit'
               className='w-1/2 bg-blue-600  py-1 rounded-sm text-white'
+              onClick={handleFacebook}
             >
               <FontAwesomeIcon icon={faFacebook} />
             </button>
@@ -59,13 +65,14 @@ const Login = () => {
           <p className=''>
             <span>¿nuevo en amazon?</span>
           </p>
-
-          <button
-            type='submit'
-            className='w-full bg-gray-400  my-2 py-1 rounded-sm text-white '
-          >
-            Crea tu cuenta de Amazonas
-          </button>
+          <Link to='/registrarse' className='w-full  '>
+            <button
+              type='submit'
+              className='w-full bg-gray-400  my-2 py-1 rounded-sm text-white '
+            >
+              Crea tu cuenta de Amazonas
+            </button>
+          </Link>
         </div>
       </div>
       <FooterInicio />

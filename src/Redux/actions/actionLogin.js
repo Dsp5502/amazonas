@@ -4,7 +4,7 @@ import {
   signInWithPopup,
   signOut,
 } from 'firebase/auth';
-import { google } from '../../Firebase/fireBaseConfig';
+import { facebook, google } from '../../Firebase/fireBaseConfig';
 import { typesLogin } from '../types/types';
 
 //* Login Sincronico
@@ -44,6 +44,22 @@ export const loginGoogle = () => {
       })
       .catch((error) => {
         console.warn(error, 'No autorizado');
+      });
+  };
+};
+
+//*Login Facebook
+
+export const loginFacebook = () => {
+  return (dispatch) => {
+    const auth = getAuth();
+    signInWithPopup(auth, facebook)
+      .then(({ user }) => {
+        //  dispatch(loginSincronico(user.email, user.password))
+        console.log(user, 'Usuario autorizado facebook');
+      })
+      .catch((error) => {
+        console.warn(error, 'No autorizado facebook');
       });
   };
 };
