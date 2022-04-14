@@ -1,24 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import ProductoSelec from '../ProductoSelec';
-
-const CardsPrducts = ({ product }) => {
-  const [datoProducto, setDatoProducto] = useState([]);
-  const [mostar, setMostar] = useState(false);
-
+const CardsPrducts = ({ product, setPrueba, setDatoProducto }) => {
   const productoDetail = (pro) => {
     console.log(pro);
     setDatoProducto(pro);
-    setMostar(true);
+    setPrueba(false);
   };
 
   return (
-    <div className='border-2 border-red-700'>
-      {mostar ? (
-        <ProductoSelec datoProducto={datoProducto} setMostar={setMostar} />
-      ) : (
-        <div className=' w-full md:w-3/12  p-4'>
-          <img className='w-full' src={product.foto1} alt='' />
+    <>
+      <div className='border-2 border-green-700 w-1/4 h-1/4 flex'>
+        <div className=' w-full   p-4   flex flex-col'>
+          <img className=' ' src={product.foto1} alt='' />
 
           <p className='text-black my-3'>{product.nombre}</p>
           <span className='flex text-black-600 my-3'> ${product.precio}</span>
@@ -30,8 +23,8 @@ const CardsPrducts = ({ product }) => {
             Ver mas
           </button>
         </div>
-      )}
-    </div>
+      </div>
+    </>
   );
 };
 

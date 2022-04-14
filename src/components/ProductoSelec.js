@@ -6,17 +6,17 @@ import Envio from './productSelect/Envio';
 import ImgSelect from './productSelect/ImgSelect';
 import MinFotos from './productSelect/MinFotos';
 
-const ProductoSelec = ({ datoProducto, setMostar }) => {
+const ProductoSelec = ({ datoProducto, setPrueba }) => {
   const { categorias, descripcion, foto1, foto2, foto3, nombre, precio } =
     datoProducto;
   const [fotoSelec, setFotoSelec] = useState(foto1);
 
   return (
-    <div className=' mt-8 md:mt-0 flex flex-col mx-auto w-11/12'>
+    <div className=' mt-8 md:mt-0 flex flex-col mx-auto w-11/12 '>
       <span
         className='my-4'
         onClick={() => {
-          setMostar(false);
+          setPrueba(true);
         }}
       >
         <FontAwesomeIcon icon={faChevronLeft} />
