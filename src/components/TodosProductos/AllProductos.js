@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { listProductAsync } from '../../Redux/actions/actionProduct';
+import Footerfin from '../Footerfin';
+import Historial from '../HistorialBusqueda/Historial';
 
 import NavBar from '../NavBar';
+import Opiniones from '../OpinionesClientes/Opiniones';
 import ProductoSelec from '../ProductoSelec';
+import ProductRelacion from '../ProductRelacion';
 
 import SubNavBar from '../SubNavBar';
 import SubNavBar2 from '../SubNavBar2';
@@ -20,12 +24,12 @@ const AllProductos = () => {
   }, []);
 
   return (
-    <div className='  mx-auto border-2 border-red-700 '>
+    <div className='  mx-auto  '>
       <NavBar />
       <SubNavBar />
       <SubNavBar2 />
       {prueba ? (
-        <div className='flex'>
+        <div className='flex flex-wrap px-10'>
           {products.map((product) => (
             <CardsPrducts
               key={product.id}
@@ -36,8 +40,14 @@ const AllProductos = () => {
           ))}
         </div>
       ) : (
-        <ProductoSelec datoProducto={datoProducto} setPrueba={setPrueba} />
+        <>
+          <ProductoSelec datoProducto={datoProducto} setPrueba={setPrueba} />
+          <ProductRelacion />
+          <Historial />
+          <Opiniones />
+        </>
       )}
+      <Footerfin />
     </div>
   );
 };

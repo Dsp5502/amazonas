@@ -8,13 +8,16 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logoutAsync } from '../Redux/actions/actionLogin';
 
 const NavBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const { email } = useSelector((store) => store.login);
+  console.log(email);
 
   const handleLogout = () => {
     dispatch(logoutAsync());
@@ -60,7 +63,7 @@ const NavBar = () => {
         </div>
       </div>
       <div className='  mr-1 md:mr-0 mt-2 md:mt-0 text-sm md:text-base h-12 flex flex-col self-start md:self-center  '>
-        <span className='md:mx-5'>Hola, identificate</span>
+        <span className='md:mx-5'>Hola, {email}</span>
         <div className='md:mx-5 font-bold'>
           <span className='hidden md:inline-block mr-2'>Cuentas y Listas</span>
           <FontAwesomeIcon
