@@ -9,6 +9,7 @@ export const typesRegister = {
 
 export const typesProduct = {
   addProduct: 'addProduct',
+  listProduct: 'listProduct',
   deleteProduct: 'deleteProduct',
   updateProduct: 'updateProduct',
 };

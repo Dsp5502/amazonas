@@ -10,6 +10,10 @@ export const productReducer = (state = initialState, action) => {
       return {
         products: [action.payload],
       };
+    case typesProduct.listProduct:
+      return {
+        products: [...action.payload],
+      };
     case typesProduct.deleteProduct:
       return state.filter((product) => product.id !== action.payload);
     case typesProduct.updateProduct:
