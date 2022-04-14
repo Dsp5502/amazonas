@@ -15,7 +15,7 @@ const CardsPrducts = ({ product }) => {
   return (
     <div className='border-2 border-red-700'>
       {mostar ? (
-        <ProductoSelec datoProducto={datoProducto} />
+        <ProductoSelec datoProducto={datoProducto} setMostar={setMostar} />
       ) : (
         <div className=' w-full md:w-3/12  p-4'>
           <img className='w-full' src={product.foto1} alt='' />

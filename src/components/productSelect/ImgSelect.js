@@ -1,9 +1,23 @@
 import React from 'react';
+import ReactImageMagnify from 'react-image-magnify';
 
 const ImgSelect = ({ fotoSelec }) => {
   return (
     <>
-      <img className=' flex  ' src={fotoSelec} alt='producto' />
+      <ReactImageMagnify
+        {...{
+          smallImage: {
+            alt: 'fotoSelec',
+            isFluidWidth: true,
+            src: fotoSelec,
+          },
+          largeImage: {
+            src: fotoSelec,
+            width: 1200,
+            height: 1800,
+          },
+        }}
+      />
     </>
   );
 };
