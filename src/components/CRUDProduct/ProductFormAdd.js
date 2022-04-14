@@ -12,11 +12,14 @@ const ProductFormAdd = () => {
     categorias: '',
     precio: '',
     foto1: '',
+    foto2: '',
+    foto3: '',
     id: uuid(),
   });
 
   const dispatch = useDispatch();
-  const { nombre, descripcion, categorias, precio, foto1 } = values;
+  const { nombre, descripcion, categorias, precio, foto1, foto2, foto3 } =
+    values;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,6 +35,32 @@ const ProductFormAdd = () => {
     FileUp(file)
       .then((resp) => {
         values.foto1 = resp;
+        console.log(resp);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
+  };
+  const handleFileChange2 = (e) => {
+    const file = e.target.files[0];
+    console.log(file);
+
+    FileUp(file)
+      .then((resp) => {
+        values.foto2 = resp;
+        console.log(resp);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
+  };
+  const handleFileChange3 = (e) => {
+    const file = e.target.files[0];
+    console.log(file);
+
+    FileUp(file)
+      .then((resp) => {
+        values.foto3 = resp;
         console.log(resp);
       })
       .catch((error) => {
@@ -90,6 +119,22 @@ const ProductFormAdd = () => {
         placeholder='Añadir foto'
         value={foto1}
         onChange={handleFileChange}
+      />
+      <input
+        type='file'
+        name='foto2'
+        className='borderEnvio rounded-sm my-2'
+        placeholder='Añadir foto'
+        value={foto2}
+        onChange={handleFileChange2}
+      />
+      <input
+        type='file'
+        name='foto3'
+        className='borderEnvio rounded-sm my-2'
+        placeholder='Añadir foto'
+        value={foto3}
+        onChange={handleFileChange3}
       />
       <button
         type='submit'
