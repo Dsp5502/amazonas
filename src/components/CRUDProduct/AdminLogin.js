@@ -13,7 +13,7 @@ const AdminLogin = ({ setIsAdminLog }) => {
             alt='amazonas'
           />
         </div>
-        <div className='borderEnvio w-full  flex flex-col px-5 py-2'>
+        <div className='borderEnvio  md:w-full  flex flex-col px-5 py-2'>
           <h2 className=' text-xl mb-1'>Ingresar Admin</h2>
           <FormLoginAdmin setIsAdminLog={setIsAdminLog} />
         </div>

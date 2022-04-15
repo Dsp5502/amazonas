@@ -1,4 +1,12 @@
-import { addDoc, collection, getDocs } from 'firebase/firestore';
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  query,
+  where,
+} from 'firebase/firestore';
 import { baseDato } from '../../Firebase/fireBaseConfig';
 import { typesProduct } from '../types/types';
 
@@ -38,5 +46,27 @@ export const listProductAsync = () => {
       productos.push({ ...doc.data() });
     });
     dispatch(listProductSync(productos));
+  };
+};
+
+//* Delete Product
+
+export const deleteProductSync = (id) => {
+  return {
+    type: typesProduct.deleteProduct,
+    payload: id,
+  };
+};
+
+export const deleteProductAsync = (id) => {
+  return async (dispatch) => {
+    const colleccionTraer = collection(baseDato, 'productpsAmazonas');
+    const q = query(colleccionTraer, where('id', '==', id));
+    const traerDatosQ = await getDocs(q);
+    traerDatosQ.forEach((docum) => {
+      deleteDoc(doc(baseDato, 'productpsAmazonas', docum.id));
+    });
+    dispatch(deleteProductSync(id));
+    dispatch(listProductAsync());
   };
 };
