@@ -12,9 +12,11 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logoutAsync } from '../Redux/actions/actionLogin';
+import ModalCart from './productSelect/ModalCart';
 
 const NavBar = () => {
   const [hamburguer, setHamburguer] = useState(false);
+  const [modalCart, setModalCart] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -31,6 +33,13 @@ const NavBar = () => {
 
   return (
     <div className=' bg-black h-28 lg:h-20 text-white flex  justify-between items-center px-4 py-2 pt-2 '>
+      {modalCart && (
+        <div className='fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 z-50 '>
+          <div className='w-full h-full flex justify-center items-center'>
+            <ModalCart />
+          </div>
+        </div>
+      )}
       {hamburguer && (
         <div className='bg-slate-900 w-full  h-full p-4 absolute z-50 left-0 flex flex-col justify-center  ease-in'>
           <div className='w-full flex justify-end mt-6'>
@@ -111,7 +120,10 @@ const NavBar = () => {
           onClick={handleLogout}
         />
       </div>
-      <div className='h-6  md:h-12 self-start mt-3 md:mt-0    flex  md:self-center'>
+      <div
+        className='h-6  md:h-12 self-start mt-3 md:mt-0    flex  md:self-center'
+        onClick={() => setModalCart(!modalCart)}
+      >
         <FontAwesomeIcon className='h-4 md:h-8' icon={faCartShopping} />
         <span className='hidden md:flex  ml-2'>Carrito</span>
       </div>
