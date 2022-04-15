@@ -17,6 +17,7 @@ import ModalCart from './productSelect/ModalCart';
 const NavBar = () => {
   const [hamburguer, setHamburguer] = useState(false);
   const [modalCart, setModalCart] = useState(false);
+  const { cart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -113,19 +114,19 @@ const NavBar = () => {
           />
         </div>
       </div>
+      <div
+        className='h-6  md:h-12 self-start mt-3 md:mt-0    flex  md:self-end'
+        onClick={() => setModalCart(!modalCart)}
+      >
+        <FontAwesomeIcon className='h-4 md:h-6' icon={faCartShopping} />
+        <span className='hidden md:flex  ml-2'>{cart.length}</span>
+      </div>
       <div className=' hidden md:flex flex-col justify-center '>
         <FontAwesomeIcon
-          className='text-white rounded-r-full'
+          className='text-white  rounded-r-full'
           icon={faArrowRightFromBracket}
           onClick={handleLogout}
         />
-      </div>
-      <div
-        className='h-6  md:h-12 self-start mt-3 md:mt-0    flex  md:self-center'
-        onClick={() => setModalCart(!modalCart)}
-      >
-        <FontAwesomeIcon className='h-4 md:h-8' icon={faCartShopping} />
-        <span className='hidden md:flex  ml-2'>Carrito</span>
       </div>
     </div>
   );

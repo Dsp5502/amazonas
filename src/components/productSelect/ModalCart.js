@@ -3,10 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteCartSync } from '../../Redux/actions/actionCart';
+import CarritoVacio from './CarritoVacio';
+import ProductsEnCart from './ProductsEnCart';
 
 const ModalCart = ({ setModalCart }) => {
   const { cart } = useSelector((store) => store.cart);
-  const dispatch = useDispatch();
 
   console.log(cart);
   let suma = 0;
@@ -17,11 +18,6 @@ const ModalCart = ({ setModalCart }) => {
   cart.map((ca) => (suma = suma + Number(ca.precio)));
   console.log(suma);
 
-  const borrardelCarrito = (id) => {
-    console.log(id);
-    dispatch(deleteCartSync(id));
-  };
-
   return (
     <div className='w-2/3 bg-slate-700 flex flex-col px-5  rounded-md  py-5 h-screen  overflow-y-scroll	 '>
       <div>
@@ -31,27 +27,11 @@ const ModalCart = ({ setModalCart }) => {
           Volver
         </div>
       </div>
-      {cart.map((item) => (
-        <div key={item.id}>
-          <hr />
-          <div className='w-full flex '>
-            <img className='w-1/5 p-4' src={item.foto1} alt='' />
-            <div className='w-3/5 p-4'>
-              <h3 className='font-bold'>{item.nombre}</h3>
-              <p>En stock</p>
-            </div>
-            <div className='w-1/5 p-4'>
-              <span>${item.precio}</span>
-            </div>
-            <FontAwesomeIcon
-              className='text-red-400 p-4 text-2xl '
-              icon={faClose}
-              onClick={() => borrardelCarrito(item.id)}
-            />
-          </div>
-          <hr />
-        </div>
-      ))}
+      {cart.length > 0 ? (
+        <ProductsEnCart />
+      ) : (
+        <CarritoVacio setModalCart={setModalCart} />
+      )}
 
       <div className='w-full flex justify-between'>
         <p className='m-3 text-amber-500'>
