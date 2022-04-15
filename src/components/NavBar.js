@@ -34,9 +34,9 @@ const NavBar = () => {
   return (
     <div className=' bg-black h-28 lg:h-20 text-white flex  justify-between items-center px-4 py-2 pt-2 '>
       {modalCart && (
-        <div className='fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 z-50 '>
-          <div className='w-full h-full flex justify-center items-center'>
-            <ModalCart />
+        <div className='fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 z-50  '>
+          <div className='w-full flex justify-center items-center '>
+            <ModalCart setModalCart={setModalCart} />
           </div>
         </div>
       )}

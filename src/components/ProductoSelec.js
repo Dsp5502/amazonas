@@ -44,7 +44,7 @@ const ProductoSelec = ({ datoProducto, setPrueba }) => {
           />
         </div>
         <div className='w-full md:w-2/12 my-4'>
-          <Envio precio={precio} />
+          <Envio datoProducto={datoProducto} />
         </div>
       </div>
     </div>

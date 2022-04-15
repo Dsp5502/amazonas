@@ -2,8 +2,13 @@ import { faCartShopping, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import dateJs from 'date.js';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addCartSync } from '../../Redux/actions/actionCart';
 
-const Envio = ({ precio }) => {
+const Envio = ({ datoProducto }) => {
+  const { categorias, descripcion, foto1, foto2, foto3, nombre, precio } =
+    datoProducto;
+  const dispatch = useDispatch();
   const diaPasado = dateJs('5 days after');
   const diaPasadoFin = dateJs('7 days after');
   const diaAprox = diaPasado.getMonth() + 1;
@@ -73,6 +78,11 @@ const Envio = ({ precio }) => {
       break;
   }
 
+  const agregarCarritoProducto = (product) => {
+    console.log(product);
+    dispatch(addCartSync(product));
+  };
+
   return (
     <div className='borderEnvio w-11/12 flex flex-col mx-auto mt-6 py-2 justify-center px-2 '>
       <p className='text-red-600 text-2xl my-2'>${precio}</p>
@@ -89,7 +99,12 @@ const Envio = ({ precio }) => {
       </p>
 
       <div>
-        <button className='rounded-sm w-11/12 m-2 py-2 bg-amber-500  flex justify-evenly'>
+        <button
+          className='rounded-sm w-11/12 m-2 py-2 bg-amber-500  flex justify-evenly'
+          onClick={() => {
+            agregarCarritoProducto(datoProducto);
+          }}
+        >
           <FontAwesomeIcon
             className='text-white bg-gray-500 '
             icon={faCartShopping}

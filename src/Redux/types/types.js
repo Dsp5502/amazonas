@@ -13,3 +13,9 @@ export const typesProduct = {
   deleteProduct: 'deleteProduct',
   updateProduct: 'updateProduct',
 };
+
+export const typesCart = {
+  addCart: 'addCart',
+  listCart: 'listCart',
+  deleteCart: 'deleteCart',
+};
