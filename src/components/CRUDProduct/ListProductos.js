@@ -1,5 +1,3 @@
-import { faClose } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -16,6 +14,7 @@ const ListProductos = () => {
 
   useEffect(() => {
     dispatch(listProductAsync());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const eliminarProduct = (id) => {

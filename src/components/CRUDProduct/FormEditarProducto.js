@@ -1,10 +1,13 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useForm } from '../../hooks/useForm';
+import { updateProductAsync } from '../../Redux/actions/actionProduct';
 
-const FormEditarProducto = ({ editar }) => {
+const FormEditarProducto = ({ editar, setModalEditar }) => {
   console.log(editar);
+  const dispatch = useDispatch();
 
-  const [values, handleInputChange, reset] = useForm({
+  const [values, handleInputChange] = useForm({
     nombre: editar.nombre,
     precio: editar.precio,
     descripcion: editar.descripcion,
@@ -12,18 +15,33 @@ const FormEditarProducto = ({ editar }) => {
     foto1: editar.foto1,
     foto2: editar.foto2,
     foto3: editar.foto3,
+    id: editar.id,
   });
 
-  const { nombre, precio, descripcion, categorias, foto1, foto2, foto3 } =
+  const { nombre, precio, descripcion, categorias, foto1, foto2, foto3, id } =
     values;
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(updateProductAsync(values));
     console.log(values);
+    setModalEditar(false);
   };
 
   return (
-    <form className='flex flex-col w-full p-10  ' onSubmit={handleSubmit}>
+    <form className='flex flex-col w-full px-10   ' onSubmit={handleSubmit}>
+      <label htmlFor='' className='font-bold text-sm'>
+        ID
+      </label>
+      <input
+        type='text'
+        name='id'
+        className='borderEnvio rounded-sm'
+        disabled
+        value={id}
+        onChange={handleInputChange}
+      />
+
       <label htmlFor='' className='font-bold text-sm'>
         Nombre Producto
       </label>
@@ -92,7 +110,7 @@ const FormEditarProducto = ({ editar }) => {
       />
       <button
         type='submit'
-        className='bg-amber-500 my-2 py-1 rounded-sm text-sm'
+        className='bg-amber-500 my-5 py-1 rounded-sm text-sm'
       >
         Editar
       </button>

@@ -21,15 +21,13 @@ export const productReducer = (state = initialState, action) => {
         ),
       };
     case typesProduct.updateProduct:
-      return state.map((product) => {
-        if (product.id === action.payload.id) {
-          return {
-            ...product,
-            ...action.payload,
-          };
-        }
-        return product;
-      });
+      return {
+        products: state.products.map((product) =>
+          product.id === action.payload.id
+            ? (product = action.payload)
+            : product
+        ),
+      };
     default:
       return state;
   }

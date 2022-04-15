@@ -5,6 +5,7 @@ import {
   doc,
   getDocs,
   query,
+  updateDoc,
   where,
 } from 'firebase/firestore';
 import { baseDato } from '../../Firebase/fireBaseConfig';
@@ -67,6 +68,38 @@ export const deleteProductAsync = (id) => {
       deleteDoc(doc(baseDato, 'productpsAmazonas', docum.id));
     });
     dispatch(deleteProductSync(id));
+    dispatch(listProductAsync());
+  };
+};
+
+//* Update Product
+
+export const updateProductSync = (product) => {
+  return {
+    type: typesProduct.updateProduct,
+    payload: product,
+  };
+};
+
+export const updateProductAsync = (product) => {
+  return async (dispatch) => {
+    const colleccionTraer = collection(baseDato, 'productpsAmazonas');
+    const q = query(colleccionTraer, where('id', '==', product.id));
+    const traerDatosQ = await getDocs(q);
+    let idquery;
+    traerDatosQ.forEach(async (docum) => {
+      idquery = docum.id;
+    });
+    console.log(idquery);
+    const documRef = doc(baseDato, 'productpsAmazonas', idquery);
+    await updateDoc(documRef, product)
+      .then((resp) => {
+        dispatch(updateProductSync(product));
+        console.log(resp);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
     dispatch(listProductAsync());
   };
 };
