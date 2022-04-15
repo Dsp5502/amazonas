@@ -16,7 +16,6 @@ const AppRouter = () => {
   const [checking, setChecking] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdminLog, setIsAdminLog] = useState(false);
-  const [isAdminLogOut, setIsAdminLogOut] = useState(true);
 
   useEffect(() => {
     const auth = getAuth();
@@ -68,7 +67,7 @@ const AppRouter = () => {
           path='/addProduct'
           element={
             <AdminRouters isAdminLog={isAdminLog}>
-              <FormAddProduct />
+              <FormAddProduct setIsAdminLog={setIsAdminLog} />
             </AdminRouters>
           }
         />

@@ -1,5 +1,8 @@
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
   deleteProductAsync,
   listProductAsync,
@@ -11,6 +14,8 @@ const ListProductos = () => {
   const [editar, setEditar] = useState();
   const dispatch = useDispatch();
   const { products } = useSelector((store) => store.product);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(listProductAsync());
@@ -24,6 +29,10 @@ const ListProductos = () => {
   const editarProducto = (producto) => {
     setEditar(producto);
     setModalEditar(!modalEditar);
+  };
+
+  const volver = () => {
+    navigate(-1);
   };
 
   return (
@@ -40,6 +49,11 @@ const ListProductos = () => {
             src='https://res.cloudinary.com/djjgtili7/image/upload/v1649562379/amazonas/image_1_mxy0eq.png'
             alt='amazonas'
           />
+        </div>
+
+        <div className='p-2  cursor-pointer' onClick={volver}>
+          <FontAwesomeIcon className='mr-1 ' icon={faChevronLeft} />
+          Volver a Agregar Producto
         </div>
 
         {products.map((product) => (
