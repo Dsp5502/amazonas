@@ -14,12 +14,12 @@ const ProductoSelec = ({ datoProducto, setPrueba }) => {
   return (
     <div className=' mt-8 md:mt-0 flex flex-col mx-auto w-11/12 '>
       <span
-        className='my-4'
+        className='my-4 cursor-pointer'
         onClick={() => {
           setPrueba(true);
         }}
       >
-        <FontAwesomeIcon icon={faChevronLeft} />
+        <FontAwesomeIcon className='mr-1' icon={faChevronLeft} />
         Volver a los Resultados
       </span>
       <div className='w-full flex flex-col md:flex-row'>
@@ -44,7 +44,7 @@ const ProductoSelec = ({ datoProducto, setPrueba }) => {
           />
         </div>
         <div className='w-full md:w-2/12 my-4'>
-          <Envio />
+          <Envio precio={precio} />
         </div>
       </div>
     </div>

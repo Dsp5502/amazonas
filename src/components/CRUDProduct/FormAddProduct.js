@@ -31,7 +31,6 @@ const FormAddProduct = () => {
           </p>
         </div>
       </div>
-      <FooterInicio />
     </div>
   );
 };

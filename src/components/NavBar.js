@@ -3,30 +3,62 @@ import {
   faArrowRightFromBracket,
   faBars,
   faCartShopping,
+  faClose,
   faLocationDot,
   faMagnifyingGlass,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logoutAsync } from '../Redux/actions/actionLogin';
 
 const NavBar = () => {
+  const [hamburguer, setHamburguer] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const { email } = useSelector((store) => store.login);
-  console.log(email);
 
   const handleLogout = () => {
     dispatch(logoutAsync());
     navigate('/login');
   };
+
+  const handleHamburguer = () => {
+    setHamburguer(!hamburguer);
+  };
+
   return (
-    <div className=' bg-black h-28 lg:h-20 text-white flex  justify-between items-center px-4 py-2 pt-2'>
+    <div className=' bg-black h-28 lg:h-20 text-white flex  justify-between items-center px-4 py-2 pt-2 '>
+      {hamburguer && (
+        <div className='bg-slate-900 w-full  h-full p-4 absolute z-50 left-0 flex flex-col justify-center  ease-in'>
+          <div className='w-full flex justify-end mt-6'>
+            <FontAwesomeIcon
+              className='text-xl text-white   '
+              icon={faClose}
+              onClick={handleHamburguer}
+            />
+          </div>
+          <span className='md:mx-5 text-white my-2'>Hola, {email}</span>
+
+          <span className='flex justify-between w-full my-2'>
+            Log out
+            <FontAwesomeIcon
+              className='text-white '
+              icon={faArrowRightFromBracket}
+              onClick={handleLogout}
+            />
+          </span>
+        </div>
+      )}
+
       <div className=' h-12 mr-4 flex items-center  self-start md:hidden'>
-        <FontAwesomeIcon className='text-xl ' icon={faBars} />
+        <FontAwesomeIcon
+          className='text-xl '
+          icon={faBars}
+          onClick={handleHamburguer}
+        />
       </div>
       <div className=' mr-2 md:mr-0 mt-2 md:mt-0 flex flex-col  justify-center self-start md:self-center'>
         <h1 className='text-sm md:text-2xl fontLogo '>Amazonas</h1>
@@ -63,7 +95,7 @@ const NavBar = () => {
         </div>
       </div>
       <div className='  mr-1 md:mr-0 mt-2 md:mt-0 text-sm md:text-base h-12 flex flex-col self-start md:self-center  '>
-        <span className='md:mx-5'>Hola, {email}</span>
+        <span className='hidden md:inline-block md:mx-5'>Hola, {email}</span>
         <div className='md:mx-5 font-bold'>
           <span className='hidden md:inline-block mr-2'>Cuentas y Listas</span>
           <FontAwesomeIcon

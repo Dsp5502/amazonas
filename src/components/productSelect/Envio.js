@@ -2,10 +2,10 @@ import { faCartShopping, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
-const Envio = () => {
+const Envio = ({ precio }) => {
   return (
     <div className='borderEnvio w-11/12 flex flex-col mx-auto mt-6 py-2 justify-center px-2 '>
-      <p className='text-red-600 text-2xl my-2'>$100,669.00</p>
+      <p className='text-red-600 text-2xl my-2'>${precio}</p>
       <p className='font-bold text-sm my-2'>
         Envio GRATIS.{' '}
         <span className='font-light text-emerald-400 '>Detalles</span>{' '}
@@ -14,7 +14,7 @@ const Envio = () => {
         Llega:{' '}
         <span>
           {' '}
-          <strong>dic 15 - 28</strong>{' '}
+          <strong>dic 25- 28</strong>{' '}
         </span>{' '}
       </p>
       <p className='text-red-600 text-sm my-3'>

@@ -10,7 +10,7 @@ const CardsPrducts = ({ product, setPrueba, setDatoProducto }) => {
   return (
     <>
       <div
-        className=' w-1/4 h-96 flex flex-wrap items-center justify-center cursor-pointer my-5'
+        className=' w-full md:w-1/4 h-96 flex border-2 md:border-0 flex-wrap items-center justify-center cursor-pointer my-5'
         onClick={() => {
           productoDetail(product);
         }}

@@ -4,6 +4,7 @@ import uuid from 'react-uuid';
 import { FileUp } from '../../helpers/FileUp';
 import { useDispatch } from 'react-redux';
 import { addProductAsync } from '../../Redux/actions/actionProduct';
+import { Link } from 'react-router-dom';
 
 const ProductFormAdd = () => {
   const [values, handleInputChange, reset] = useForm({
@@ -142,6 +143,13 @@ const ProductFormAdd = () => {
       >
         Agregar
       </button>
+      <Link
+        to='/listProductos'
+        type='submit'
+        className='bg-green-500 my-2 py-1 rounded-sm text-sm text-center'
+      >
+        Consultar Productos
+      </Link>
     </form>
   );
 };

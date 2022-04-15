@@ -29,7 +29,7 @@ const AllProductos = () => {
       <SubNavBar />
       <SubNavBar2 />
       {prueba ? (
-        <div className='flex flex-wrap px-10'>
+        <div className='flex flex-wrap flex-col md:flex-row px-10 my-5'>
           {products.map((product) => (
             <CardsPrducts
               key={product.id}

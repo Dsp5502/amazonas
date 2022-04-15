@@ -5,6 +5,7 @@ import Checking from '../components/Checking';
 import CrearCuenta from '../components/CrearCuenta';
 import AdminLogin from '../components/CRUDProduct/AdminLogin';
 import FormAddProduct from '../components/CRUDProduct/FormAddProduct';
+import ListProductos from '../components/CRUDProduct/ListProductos';
 import Login from '../components/Login';
 import AdminRouters from './AdminRouters';
 import DashRoutersRoute from './DashRoutersRoute';
@@ -68,6 +69,14 @@ const AppRouter = () => {
           element={
             <AdminRouters isAdminLog={isAdminLog}>
               <FormAddProduct />
+            </AdminRouters>
+          }
+        />
+        <Route
+          path='/listProductos'
+          element={
+            <AdminRouters isAdminLog={isAdminLog}>
+              <ListProductos />
             </AdminRouters>
           }
         />
