@@ -8,3 +8,12 @@ export const addCartSync = (product) => {
     payload: product,
   };
 };
+
+//* DeleteCart
+
+export const deleteCartSync = (product) => {
+  return {
+    type: typesCart.deleteCart,
+    payload: product,
+  };
+};

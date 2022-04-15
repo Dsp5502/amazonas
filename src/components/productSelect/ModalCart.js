@@ -1,10 +1,12 @@
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { deleteCartSync } from '../../Redux/actions/actionCart';
 
 const ModalCart = ({ setModalCart }) => {
   const { cart } = useSelector((store) => store.cart);
+  const dispatch = useDispatch();
 
   console.log(cart);
   let suma = 0;
@@ -14,6 +16,12 @@ const ModalCart = ({ setModalCart }) => {
   };
   cart.map((ca) => (suma = suma + Number(ca.precio)));
   console.log(suma);
+
+  const borrardelCarrito = (id) => {
+    console.log(id);
+    dispatch(deleteCartSync(id));
+  };
+
   return (
     <div className='w-2/3 bg-slate-700 flex flex-col px-5  rounded-md  py-5 h-screen  overflow-y-scroll	 '>
       <div>
@@ -35,7 +43,11 @@ const ModalCart = ({ setModalCart }) => {
             <div className='w-1/5 p-4'>
               <span>${item.precio}</span>
             </div>
-            <button>Eliminar</button>
+            <FontAwesomeIcon
+              className='text-red-400 p-4 text-2xl '
+              icon={faClose}
+              onClick={() => borrardelCarrito(item.id)}
+            />
           </div>
           <hr />
         </div>
