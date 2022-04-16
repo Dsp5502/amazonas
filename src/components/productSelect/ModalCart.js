@@ -2,12 +2,14 @@ import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import CarritoVacio from './CarritoVacio';
 import ProductsEnCart from './ProductsEnCart';
 
 const ModalCart = ({ setModalCart }) => {
   const { cart } = useSelector((store) => store.cart);
   const [carritoSinDuplicado, setcarritoSinDuplicado] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const carritoSinDuplicado = cart.filter(
@@ -52,7 +54,16 @@ const ModalCart = ({ setModalCart }) => {
           </span>
         </p>
         {cart.length > 0 && (
-          <p className='m-3 text-amber-500 cursor-pointer'> Pagar</p>
+          <p
+            className='m-3 text-amber-500 cursor-pointer'
+            onClick={() => {
+              setModalCart(false);
+              navigate('/pagar');
+            }}
+          >
+            {' '}
+            Pagar
+          </p>
         )}
 
         <p className='m-3 text-amber-500'>

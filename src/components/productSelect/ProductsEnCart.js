@@ -7,14 +7,11 @@ import { addCartSync, deleteCartSync } from '../../Redux/actions/actionCart';
 const ProductsEnCart = ({ carritoSinDuplicado }) => {
   const dispatch = useDispatch();
 
-  console.log(carritoSinDuplicado);
-
   const borrardelCarrito = (id) => {
-    console.log(id);
     dispatch(deleteCartSync(id));
   };
+
   const agregarCarritoProducto = (product) => {
-    console.log(product);
     dispatch(addCartSync(product));
   };
 
@@ -33,14 +30,13 @@ const ProductsEnCart = ({ carritoSinDuplicado }) => {
               <span>
                 {item.cantidad} X ${item.precio}
               </span>
-              <div className='  flex w-24 justify-evenly mr-5 mt-2'>
+              <div className='  flex  justify-center bg-green-700 py-1 w-2/3 mt-2 '>
                 <FontAwesomeIcon
                   icon={faPlus}
                   onClick={() => {
                     agregarCarritoProducto(item);
                   }}
                 />
-                <FontAwesomeIcon icon={faMinus} />
               </div>
             </div>
             <FontAwesomeIcon
