@@ -1,8 +1,9 @@
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { emptyCartSync } from '../../Redux/actions/actionCart';
 import CarritoVacio from './CarritoVacio';
 import ProductsEnCart from './ProductsEnCart';
 
@@ -10,6 +11,7 @@ const ModalCart = ({ setModalCart }) => {
   const { cart } = useSelector((store) => store.cart);
   const [carritoSinDuplicado, setcarritoSinDuplicado] = useState([]);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const carritoSinDuplicado = cart.filter(
@@ -27,6 +29,10 @@ const ModalCart = ({ setModalCart }) => {
   const volver = () => {
     setModalCart(false);
   };
+  const vaciarCarrito = () => {
+    dispatch(emptyCartSync());
+    setModalCart(false);
+  };
 
   cart.map((ca) => (suma = suma + Number(ca.precio)));
 
@@ -34,9 +40,17 @@ const ModalCart = ({ setModalCart }) => {
     <div className='w-2/3 bg-slate-700 flex flex-col px-5  rounded-md  py-5 h-screen  overflow-y-scroll	 '>
       <div>
         <h2 className='text-4xl mr-4 my-5'>Carrito De compras</h2>
-        <div className='p-2  cursor-pointer text-amber-500' onClick={volver}>
-          <FontAwesomeIcon className='mr-1  ' icon={faChevronLeft} />
-          Volver
+        <div
+          className='p-2 flex  items-center justify-between  cursor-pointer text-amber-500'
+          onClick={volver}
+        >
+          <div>
+            <FontAwesomeIcon className='mr-1  ' icon={faChevronLeft} />
+            Volver
+          </div>
+          <span className='text-red-400' onClick={vaciarCarrito}>
+            Vaciar Carrito
+          </span>
         </div>
       </div>
       {cart.length > 0 ? (
