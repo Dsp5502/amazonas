@@ -84,7 +84,7 @@ const ModalCart = ({ setModalCart }) => {
           Subtotal:{' '}
           <span className='text-white'>
             {' '}
-            <strong>{suma.toFixed(3)}</strong>
+            <strong>{suma.toFixed(2)}</strong>
           </span>
         </p>
       </div>

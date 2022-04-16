@@ -23,3 +23,150 @@ tr:nth-child(even) {
   background-color: rgb(51 65 85);
   color: white;
 }
+
+.btnOrange {
+  border: 2px solid #ff9900;
+  position: relative;
+  overflow: hidden;
+  background-color: #ff9900;
+  text-align: center;
+
+  font-size: 16px;
+  transition: 0.3s;
+  z-index: 1;
+  font-family: inherit;
+  color: white;
+}
+
+.btnOrange::before {
+  content: '';
+  width: 0;
+  height: 1000%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: white;
+  transition: 0.5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.btnOrange:hover::before {
+  width: 105%;
+}
+
+.btnOrange:hover {
+  color: #ff9900;
+}
+
+.btnGoogle {
+  border: 2px solid #ea4436;
+  position: relative;
+  overflow: hidden;
+  background-color: #ea4436;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: 0.3s;
+  z-index: 1;
+  font-family: inherit;
+  color: white;
+}
+
+.btnGoogle::before {
+  content: '';
+  width: 0;
+  height: 1000%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: white;
+  transition: 0.5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.btnGoogle:hover::before {
+  width: 105%;
+}
+
+.btnGoogle:hover {
+  color: #ea4436;
+}
+
+.btnFacebook {
+  border: 2px solid #3b5998;
+  position: relative;
+  overflow: hidden;
+  background-color: #3b5998;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: 0.3s;
+  z-index: 1;
+  font-family: inherit;
+  color: white;
+}
+
+.btnFacebook::before {
+  content: '';
+  width: 0;
+  height: 1000%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: white;
+  transition: 0.5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.btnFacebook:hover::before {
+  width: 105%;
+}
+
+.btnFacebook:hover {
+  color: #3b5998;
+}
+.bgFooter {
+  background-color: #fdfdfd !important;
+}
+
+.btnCuentaNueva {
+  border: 0.5px solid rgb(192, 187, 187);
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  text-align: center;
+
+  font-size: 12px;
+  transition: 0.3s;
+  z-index: 1;
+  font-family: inherit;
+  color: black;
+}
+
+.btnCuentaNueva::before {
+  content: '';
+  width: 0;
+  height: 1000%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: gray;
+  transition: 0.5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.btnCuentaNueva:hover::before {
+  width: 105%;
+}
+
+.btnCuentaNueva:hover {
+  color: white;
+}

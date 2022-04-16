@@ -20,7 +20,6 @@ export const FormLogin = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = ({ email, password }) => {
-    console.log(email, password);
     dispatch(loginAsync(email, password));
   };
   return (
@@ -43,7 +42,7 @@ export const FormLogin = () => {
             name='email'
             placeholder='Ingresa tu correo'
             type='email'
-            className='borderEnvio rounded-sm'
+            className='borderEnvio rounded-sm outline-none'
           />
           {errors.email && touched.email ? (
             <div className='text-red-500 text-xs italic'>{errors.email}</div>
@@ -55,14 +54,14 @@ export const FormLogin = () => {
             name='password'
             placeholder='Ingresa tu contraseña'
             type='password'
-            className='borderEnvio rounded-sm'
+            className='borderEnvio rounded-sm outline-none'
           />
           {errors.password && touched.password ? (
             <div className='text-red-500 text-xs italic'>{errors.password}</div>
           ) : null}
           <button
             type='submit'
-            className='bg-amber-500 my-2 py-1 rounded-sm text-sm'
+            className='btnOrange my-2 active:transform active:translate-y-1  shadow-md '
           >
             Continue
           </button>
