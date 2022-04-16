@@ -20,4 +20,11 @@ export const typesCart = {
   addCart: 'addCart',
   listCart: 'listCart',
   deleteCart: 'deleteCart',
+  emptyCart: 'emptyCart',
+};
+
+export const typesPedidos = {
+  addPedido: 'addPedido',
+  listPedido: 'listPedido',
+  deletePedido: 'deletePedido',
 };

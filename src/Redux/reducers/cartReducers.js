@@ -18,6 +18,10 @@ export const cartReducers = (state = initialState, action) => {
       return {
         cart: state.cart.filter((car) => car.id !== action.payload),
       };
+    case typesCart.emptyCart:
+      return {
+        cart: [],
+      };
 
     default:
       return state;

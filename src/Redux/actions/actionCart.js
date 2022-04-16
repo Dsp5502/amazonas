@@ -17,3 +17,11 @@ export const deleteCartSync = (product) => {
     payload: product,
   };
 };
+
+//* EmptyCart
+
+export const emptyCartSync = () => {
+  return {
+    type: typesCart.emptyCart,
+  };
+};
