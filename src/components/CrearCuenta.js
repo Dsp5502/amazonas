@@ -1,8 +1,17 @@
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import FooterInicio from './FooterInicio';
 import FormCrearCuenta from './FormCrearCuenta';
 
 const CrearCuenta = () => {
+  const navigate = useNavigate();
+
+  const volver = () => {
+    navigate('/login');
+  };
+
   return (
     <div className=' w-full  flex  flex-col justify-center items-center h-screen mx-auto mt-5'>
       <div className='w-2/3 md:w-1/4  h-5/6 flex flex-col items-center justify-center '>
@@ -13,6 +22,13 @@ const CrearCuenta = () => {
             src='https://res.cloudinary.com/djjgtili7/image/upload/v1649562379/amazonas/image_1_mxy0eq.png'
             alt='amazonas'
           />
+        </div>
+        <div
+          className='p-2 w-full flex items-center  cursor-pointer'
+          onClick={volver}
+        >
+          <FontAwesomeIcon className='mr-1 ' icon={faChevronLeft} />
+          Volver
         </div>
         <div className='borderEnvio w-full  flex flex-col px-5 py-2'>
           <h2 className=' text-xl mb-1'>Crear Cuenta</h2>

@@ -113,17 +113,17 @@ const NavBar = () => {
         className=' flex h-10 w-80 mx-2 md:w-96 absolute md:relative text-black self-end md:self-center '
       >
         <select
-          className='hidden md:flex md:w-2/6 rounded-l-full'
+          className='hidden md:flex md:w-2/6 rounded-l-full bg-white text-center'
           name='categorias'
           onChange={handleInputChange}
         >
-          <option>Todos </option>
-          <option>VideoJuegos</option>
-          <option>Ropa</option>
-          <option>Tecnologia</option>
+          <option className='border-2'>Todos </option>
+          <option className='border-2'>VideoJuegos</option>
+          <option className='border-2'>Ropa</option>
+          <option className='border-2'>Tecnologia</option>
         </select>
         <input
-          className='w-4/5  md:w-4/6 rounded-l-full md:rounded-none '
+          className='w-4/5  md:w-4/6 rounded-l-full md:rounded-none outline-none '
           type='text'
           name='busqueda'
           onChange={handleInputChange}
