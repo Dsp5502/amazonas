@@ -2,7 +2,6 @@ import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-
 import CarritoVacio from './CarritoVacio';
 import ProductsEnCart from './ProductsEnCart';
 
@@ -10,23 +9,17 @@ const ModalCart = ({ setModalCart }) => {
   const { cart } = useSelector((store) => store.cart);
   const [carritoSinDuplicado, setcarritoSinDuplicado] = useState([]);
 
-  const [prueba, setPrueba] = useState();
-
   useEffect(() => {
     const carritoSinDuplicado = cart.filter(
       (car, index, self) => index === self.findIndex((t) => t.id === car.id)
     );
-    const agregarProiedadCantidad = carritoSinDuplicado.map((item) => {
+    carritoSinDuplicado.map((item) => {
       item.cantidad = cart.filter((car) => car.id === item.id).length;
       return item;
     });
-    setPrueba(agregarProiedadCantidad);
 
     setcarritoSinDuplicado(carritoSinDuplicado);
   }, [cart]);
-
-  console.log(carritoSinDuplicado);
-  console.log(prueba);
 
   let suma = 0;
   const volver = () => {

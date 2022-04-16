@@ -1,8 +1,8 @@
-import { faClose } from '@fortawesome/free-solid-svg-icons';
+import { faClose, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteCartSync } from '../../Redux/actions/actionCart';
+import { addCartSync, deleteCartSync } from '../../Redux/actions/actionCart';
 
 const ProductsEnCart = ({ carritoSinDuplicado }) => {
   const dispatch = useDispatch();
@@ -12,6 +12,10 @@ const ProductsEnCart = ({ carritoSinDuplicado }) => {
   const borrardelCarrito = (id) => {
     console.log(id);
     dispatch(deleteCartSync(id));
+  };
+  const agregarCarritoProducto = (product) => {
+    console.log(product);
+    dispatch(addCartSync(product));
   };
 
   return (
@@ -29,6 +33,15 @@ const ProductsEnCart = ({ carritoSinDuplicado }) => {
               <span>
                 {item.cantidad} X ${item.precio}
               </span>
+              <div className='  flex w-24 justify-evenly mr-5 mt-2'>
+                <FontAwesomeIcon
+                  icon={faPlus}
+                  onClick={() => {
+                    agregarCarritoProducto(item);
+                  }}
+                />
+                <FontAwesomeIcon icon={faMinus} />
+              </div>
             </div>
             <FontAwesomeIcon
               className='text-red-400 p-4 text-2xl '
