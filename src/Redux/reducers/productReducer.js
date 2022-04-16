@@ -28,6 +28,18 @@ export const productReducer = (state = initialState, action) => {
             : product
         ),
       };
+    case typesProduct.searchProduct:
+      return {
+        products: state.products.filter((pro) =>
+          pro.nombre.toLowerCase().includes(action.payload.toLowerCase())
+        ),
+      };
+    case typesProduct.filterCategory:
+      return {
+        products: state.products.filter(
+          (pro) => pro.categorias === action.payload
+        ),
+      };
     default:
       return state;
   }

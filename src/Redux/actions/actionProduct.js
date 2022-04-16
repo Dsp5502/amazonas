@@ -103,3 +103,22 @@ export const updateProductAsync = (product) => {
     dispatch(listProductAsync());
   };
 };
+
+//* Search Product
+
+export const searchProductSync = (product) => {
+  return {
+    type: typesProduct.searchProduct,
+    payload: product,
+  };
+};
+
+//* filter filterCategory
+
+export const filterCategorySync = (product) => {
+  console.log(product);
+  return {
+    type: typesProduct.filterCategory,
+    payload: product,
+  };
+};

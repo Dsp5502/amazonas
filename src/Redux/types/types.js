@@ -12,6 +12,8 @@ export const typesProduct = {
   listProduct: 'listProduct',
   deleteProduct: 'deleteProduct',
   updateProduct: 'updateProduct',
+  searchProduct: 'searchProduct',
+  filterCategory: 'filterCategory',
 };
 
 export const typesCart = {

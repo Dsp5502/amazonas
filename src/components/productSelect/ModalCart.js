@@ -1,8 +1,8 @@
-import { faChevronLeft, faClose } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteCartSync } from '../../Redux/actions/actionCart';
+import { useSelector } from 'react-redux';
+
 import CarritoVacio from './CarritoVacio';
 import ProductsEnCart from './ProductsEnCart';
 
@@ -41,6 +41,10 @@ const ModalCart = ({ setModalCart }) => {
             <strong>{cart.length}</strong>
           </span>
         </p>
+        {cart.length > 0 && (
+          <p className='m-3 text-amber-500 cursor-pointer'> Pagar</p>
+        )}
+
         <p className='m-3 text-amber-500'>
           Subtotal:{' '}
           <span className='text-white'>

@@ -8,10 +8,16 @@ import {
   faMagnifyingGlass,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from '../hooks/useForm';
 import { logoutAsync } from '../Redux/actions/actionLogin';
+import {
+  filterCategorySync,
+  listProductAsync,
+  searchProductSync,
+} from '../Redux/actions/actionProduct';
 import ModalCart from './productSelect/ModalCart';
 
 const NavBar = () => {
@@ -20,8 +26,11 @@ const NavBar = () => {
   const { cart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const { email } = useSelector((store) => store.login);
+  const [values, handleInputChange, reset] = useForm({
+    busqueda: '',
+    categorias: '',
+  });
 
   const handleLogout = () => {
     dispatch(logoutAsync());
@@ -30,6 +39,20 @@ const NavBar = () => {
 
   const handleHamburguer = () => {
     setHamburguer(!hamburguer);
+  };
+
+  useEffect(() => {
+    dispatch(listProductAsync());
+  }, [values]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(values.busqueda);
+    if (values.busqueda !== '') {
+      dispatch(searchProductSync(values.busqueda));
+    } else {
+      dispatch(filterCategorySync(values.categorias));
+    }
   };
 
   return (
@@ -85,25 +108,37 @@ const NavBar = () => {
           <span className='ml-2'>Elige tu dirección</span>
         </div>
       </div>
-      <div className=' flex h-10 w-80 mx-2 md:w-96 absolute md:relative text-black self-end md:self-center '>
+      <form
+        onSubmit={handleSubmit}
+        className=' flex h-10 w-80 mx-2 md:w-96 absolute md:relative text-black self-end md:self-center '
+      >
         <select
           className='hidden md:flex md:w-2/6 rounded-l-full'
-          name=''
-          id=''
+          name='categorias'
+          onChange={handleInputChange}
         >
-          <option value=''>Todos los departamentos</option>
+          <option>Todos </option>
+          <option>VideoJuegos</option>
+          <option>Ropa</option>
+          <option>Tecnologia</option>
         </select>
         <input
           className='w-4/5  md:w-4/6 rounded-l-full md:rounded-none '
           type='text'
+          name='busqueda'
+          onChange={handleInputChange}
         />
-        <div className='bg-orange-400 flex items-center w-1/5 md:w-1/6 justify-center rounded-r-full'>
+
+        <button
+          type='submit'
+          className='bg-orange-400 flex items-center w-1/5 md:w-1/6 justify-center rounded-r-full'
+        >
           <FontAwesomeIcon
             className='text-black rounded-r-full'
             icon={faMagnifyingGlass}
           />
-        </div>
-      </div>
+        </button>
+      </form>
       <div className='  mr-1 md:mr-0 mt-2 md:mt-0 text-sm md:text-base h-12 flex flex-col self-start md:self-center  '>
         <span className='hidden md:inline-block md:mx-5'>Hola, {email}</span>
         <div className='md:mx-5 font-bold'>
