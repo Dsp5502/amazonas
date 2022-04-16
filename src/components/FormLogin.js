@@ -42,7 +42,7 @@ export const FormLogin = () => {
             name='email'
             placeholder='Ingresa tu correo'
             type='email'
-            className='borderEnvio rounded-sm outline-none'
+            className='borderEnvio rounded-sm px-2 outline-none'
           />
           {errors.email && touched.email ? (
             <div className='text-red-500 text-xs italic'>{errors.email}</div>
@@ -54,7 +54,7 @@ export const FormLogin = () => {
             name='password'
             placeholder='Ingresa tu contraseña'
             type='password'
-            className='borderEnvio rounded-sm outline-none'
+            className='borderEnvio rounded-sm px-2 outline-none'
           />
           {errors.password && touched.password ? (
             <div className='text-red-500 text-xs italic'>{errors.password}</div>
