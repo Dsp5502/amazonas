@@ -1,12 +1,13 @@
 import { faClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { deleteCartSync } from '../../Redux/actions/actionCart';
 
-const ProductsEnCart = () => {
-  const { cart } = useSelector((store) => store.cart);
+const ProductsEnCart = ({ carritoSinDuplicado }) => {
   const dispatch = useDispatch();
+
+  console.log(carritoSinDuplicado);
 
   const borrardelCarrito = (id) => {
     console.log(id);
@@ -15,7 +16,7 @@ const ProductsEnCart = () => {
 
   return (
     <>
-      {cart.map((item) => (
+      {carritoSinDuplicado.map((item) => (
         <div key={item.id}>
           <hr />
           <div className='w-full flex '>
@@ -24,8 +25,10 @@ const ProductsEnCart = () => {
               <h3 className='font-bold'>{item.nombre}</h3>
               <p>En stock</p>
             </div>
-            <div className='w-1/5 p-4'>
-              <span>${item.precio}</span>
+            <div className='w-1/5 py-4 px-2'>
+              <span>
+                {item.cantidad} X ${item.precio}
+              </span>
             </div>
             <FontAwesomeIcon
               className='text-red-400 p-4 text-2xl '

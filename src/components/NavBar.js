@@ -27,7 +27,7 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { email } = useSelector((store) => store.login);
-  const [values, handleInputChange, reset] = useForm({
+  const [values, handleInputChange] = useForm({
     busqueda: '',
     categorias: '',
   });
@@ -43,6 +43,7 @@ const NavBar = () => {
 
   useEffect(() => {
     dispatch(listProductAsync());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values]);
 
   const handleSubmit = (e) => {
