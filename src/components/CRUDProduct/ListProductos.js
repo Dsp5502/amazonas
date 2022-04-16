@@ -3,9 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from '../../hooks/useForm';
 import {
   deleteProductAsync,
+  filterCategorySync,
   listProductAsync,
+  searchProductSync,
 } from '../../Redux/actions/actionProduct';
 import ModalEditar from './ModalEditar';
 
@@ -17,11 +20,14 @@ const ListProductos = () => {
 
   const navigate = useNavigate();
 
+  const [values, handleInputChange, reset] = useForm({
+    busqueda: '',
+  });
+
   useEffect(() => {
     dispatch(listProductAsync());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+  }, [values]);
   const eliminarProduct = (id) => {
     dispatch(deleteProductAsync(id));
   };
@@ -33,6 +39,11 @@ const ListProductos = () => {
 
   const volver = () => {
     navigate(-1);
+  };
+  const handleSubmit = (e) => {
+    console.log(values.busqueda);
+    e.preventDefault();
+    dispatch(searchProductSync(values.busqueda));
   };
 
   return (
@@ -55,6 +66,18 @@ const ListProductos = () => {
           <FontAwesomeIcon className='mr-1 ' icon={faChevronLeft} />
           Volver a Agregar Producto
         </div>
+        <form
+          onSubmit={handleSubmit}
+          className='flex justify-center items-center w-full'
+        >
+          <input
+            type='text'
+            name='busqueda'
+            className='border-2 w-1/3 px-3 rounded-sm mx-2 border-amber-500 outline-none'
+            placeholder='Buscar Producto....'
+            onChange={handleInputChange}
+          />
+        </form>
 
         {products.map((product) => (
           <div
