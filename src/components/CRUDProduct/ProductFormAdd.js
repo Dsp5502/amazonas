@@ -143,13 +143,22 @@ const ProductFormAdd = () => {
       >
         Agregar
       </button>
-      <Link
-        to='/listProductos'
-        type='submit'
-        className='bg-green-500 my-2 py-1 rounded-sm text-sm text-center'
-      >
-        Consultar Productos
-      </Link>
+      <div className='my-2 flex w-full  '>
+        <Link
+          to='/listProductos'
+          type='submit'
+          className='bg-green-500 m-2 py-1 rounded-sm text-sm text-center w-1/2'
+        >
+          Consultar Productos
+        </Link>
+        <Link
+          to='/listPedidos'
+          type='submit'
+          className='bg-blue-500 m-2 py-1 rounded-sm text-sm text-center w-1/2'
+        >
+          Consultar Pedidos
+        </Link>
+      </div>
     </form>
   );
 };

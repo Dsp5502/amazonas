@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import uuid from 'react-uuid';
 import * as Yup from 'yup';
 import { emptyCartSync } from '../../Redux/actions/actionCart';
+import { addPedidos } from '../../Redux/actions/actionPedidos';
 
 const SignupSchema = Yup.object().shape({
   cardNumber: Yup.string()
@@ -27,10 +28,12 @@ const DatosPago = ({ cart }) => {
   const navigate = useNavigate();
 
   const handleSubmit = (values) => {
-    console.log(values, cart);
+    console.log({ values, cart });
+    dispatch(addPedidos({ values, cart }));
     dispatch(emptyCartSync());
-    navigate('/login');
+    navigate('/');
   };
+
   return (
     <Formik
       initialValues={{

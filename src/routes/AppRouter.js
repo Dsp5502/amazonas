@@ -5,6 +5,7 @@ import Checking from '../components/Checking';
 import CrearCuenta from '../components/CrearCuenta';
 import AdminLogin from '../components/CRUDProduct/AdminLogin';
 import FormAddProduct from '../components/CRUDProduct/FormAddProduct';
+import ListPedidos from '../components/CRUDProduct/ListPedidos';
 import ListProductos from '../components/CRUDProduct/ListProductos';
 import Login from '../components/Login';
 import AdminRouters from './AdminRouters';
@@ -76,6 +77,14 @@ const AppRouter = () => {
           element={
             <AdminRouters isAdminLog={isAdminLog}>
               <ListProductos />
+            </AdminRouters>
+          }
+        />
+        <Route
+          path='/listPedidos'
+          element={
+            <AdminRouters isAdminLog={isAdminLog}>
+              <ListPedidos />
             </AdminRouters>
           }
         />
