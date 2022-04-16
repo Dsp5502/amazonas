@@ -93,7 +93,12 @@ const NavBar = () => {
           onClick={handleHamburguer}
         />
       </div>
-      <div className=' mr-2 md:mr-0 mt-2 md:mt-0 flex flex-col  justify-center self-start md:self-center'>
+      <div
+        className=' mr-2 md:mr-0 mt-2 md:mt-0 flex flex-col  justify-center self-start md:self-center cursor-pointer'
+        onClick={() => {
+          navigate('/login');
+        }}
+      >
         <h1 className='text-sm md:text-2xl fontLogo '>Amazonas</h1>
         <img
           className='w-20 md:w-32 '

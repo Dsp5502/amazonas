@@ -4,7 +4,7 @@ const CardsBusqueda = () => {
   return (
     <>
       <h1 className='font-semibold text-xl md:text-3xl mb-5'>
-        Productos relacionados con este artículo
+        Productos mas Visitados
       </h1>
       <hr />
       <div className='flex flex-col  md:flex-row p-4 '>

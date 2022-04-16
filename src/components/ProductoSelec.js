@@ -1,6 +1,8 @@
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { listProductAsync } from '../Redux/actions/actionProduct';
 import Descripcion from './productSelect/Descripcion';
 import Envio from './productSelect/Envio';
 import ImgSelect from './productSelect/ImgSelect';
@@ -10,6 +12,7 @@ const ProductoSelec = ({ datoProducto, setPrueba }) => {
   const { categorias, descripcion, foto1, foto2, foto3, nombre, precio } =
     datoProducto;
   const [fotoSelec, setFotoSelec] = useState(foto1);
+  const dispatch = useDispatch();
 
   return (
     <div className=' mt-8 md:mt-0 flex flex-col mx-auto w-11/12 '>
@@ -17,6 +20,7 @@ const ProductoSelec = ({ datoProducto, setPrueba }) => {
         className='my-4 cursor-pointer'
         onClick={() => {
           setPrueba(true);
+          dispatch(listProductAsync());
         }}
       >
         <FontAwesomeIcon className='mr-1' icon={faChevronLeft} />

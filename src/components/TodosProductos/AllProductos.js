@@ -21,6 +21,7 @@ const AllProductos = () => {
   console.log(products);
   useEffect(() => {
     dispatch(listProductAsync());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -42,7 +43,7 @@ const AllProductos = () => {
       ) : (
         <>
           <ProductoSelec datoProducto={datoProducto} setPrueba={setPrueba} />
-          <ProductRelacion />
+          <ProductRelacion datoProducto={datoProducto} />
           <Historial />
           <Opiniones />
         </>

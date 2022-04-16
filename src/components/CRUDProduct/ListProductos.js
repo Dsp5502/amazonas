@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import {
   deleteProductAsync,
-  filterCategorySync,
   listProductAsync,
   searchProductSync,
 } from '../../Redux/actions/actionProduct';
@@ -20,7 +19,7 @@ const ListProductos = () => {
 
   const navigate = useNavigate();
 
-  const [values, handleInputChange, reset] = useForm({
+  const [values, handleInputChange] = useForm({
     busqueda: '',
   });
 
@@ -28,6 +27,7 @@ const ListProductos = () => {
     dispatch(listProductAsync());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values]);
+
   const eliminarProduct = (id) => {
     dispatch(deleteProductAsync(id));
   };
@@ -41,7 +41,6 @@ const ListProductos = () => {
     navigate(-1);
   };
   const handleSubmit = (e) => {
-    console.log(values.busqueda);
     e.preventDefault();
     dispatch(searchProductSync(values.busqueda));
   };

@@ -4,8 +4,6 @@ import React from 'react';
 import FormEditarProducto from './FormEditarProducto';
 
 const ModalEditar = ({ editar, setModalEditar }) => {
-  console.log(editar);
-
   const cerrarModal = () => {
     setModalEditar(false);
   };
