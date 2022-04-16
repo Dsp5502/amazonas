@@ -53,50 +53,50 @@ const FormCrearCuenta = () => {
     >
       {({ errors, touched }) => (
         <Form className='flex flex-col'>
-          <label htmlFor='' className='font-bold text-sm'>
+          <label htmlFor='' className='font-bold text-sm mb-1'>
             Nombre
           </label>
           <Field
             name='nombre'
             placeholder='Ingresa tu nombre'
             type='text'
-            className='borderEnvio rounded-sm'
+            className='borderEnvio rounded-sm px-2'
           />
           {errors.nombre && touched.nombre ? (
             <div className='text-red-500 text-xs italic'>{errors.nombre}</div>
           ) : null}
-          <label htmlFor='' className='font-bold text-sm'>
+          <label htmlFor='' className='font-bold text-sm mb-1'>
             Correo electrónico
           </label>
           <Field
             name='email'
             placeholder='Ingresa tu correo'
             type='email'
-            className='borderEnvio rounded-sm'
+            className='borderEnvio rounded-sm px-2'
           />
           {errors.email && touched.email ? (
             <div className='text-red-500 text-xs italic'>{errors.email}</div>
           ) : null}
-          <label htmlFor='' className='font-bold text-sm'>
+          <label htmlFor='' className='font-bold text-sm mb-1'>
             Contraseña
           </label>
           <Field
             name='password'
             placeholder='Minimo 5 caracteres'
             type='password'
-            className='borderEnvio rounded-sm'
+            className='borderEnvio rounded-sm px-2'
           />
           {errors.password && touched.password ? (
             <div className='text-red-500 text-xs italic'>{errors.password}</div>
           ) : null}
-          <label htmlFor='' className='font-bold text-sm'>
+          <label htmlFor='' className='font-bold text-sm mb-1'>
             Vuelve a ingresar Contraseña
           </label>
           <Field
             name='password2'
-            placeholder='Re Ingresa tu contraseña'
+            placeholder='Ingresa tu contraseña'
             type='password'
-            className='borderEnvio rounded-sm'
+            className='borderEnvio rounded-sm px-2'
           />
           {errors.password2 && touched.password2 ? (
             <div className='text-red-500 text-xs italic'>
@@ -105,7 +105,7 @@ const FormCrearCuenta = () => {
           ) : null}
           <button
             type='submit'
-            className='bg-amber-500 my-2 py-1 rounded-sm text-sm'
+            className='btnOrange my-2 py-1 rounded-sm text-sm'
           >
             Crear Cuenta
           </button>
