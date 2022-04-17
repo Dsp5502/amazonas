@@ -9,7 +9,7 @@ const ModalEditar = ({ editar, setModalEditar }) => {
   };
 
   return (
-    <div className='w-screen lg:w-screen  h-screen flex justify-center items-center bg-black bg-opacity-40 fixed  '>
+    <div className='w-screen lg:w-screen  h-screen flex justify-center items-center bg-black bg-opacity-40 fixed z-50 '>
       <div className='w-11/12 lg:w-3/5 bg-white flex  py-2  flex-col justify-center items-center'>
         <div className='w-full p-5 flex justify-end '>
           {' '}

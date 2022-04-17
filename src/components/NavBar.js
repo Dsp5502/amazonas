@@ -48,7 +48,7 @@ const NavBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values.busqueda);
+
     if (values.busqueda !== '') {
       dispatch(searchProductSync(values.busqueda));
     } else {
@@ -57,7 +57,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className=' bg-black h-28 lg:h-20 text-white flex  justify-between items-center px-4 py-2 pt-2 '>
+    <div className=' bg-ebony-clay-500 h-28 lg:h-20 text-white flex  justify-between items-center px-4 py-2 pt-2 '>
       {modalCart && (
         <div className='fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 z-50  '>
           <div className='w-full flex justify-center items-center '>
@@ -66,10 +66,10 @@ const NavBar = () => {
         </div>
       )}
       {hamburguer && (
-        <div className='bg-slate-900 w-full  h-full p-4 absolute z-50 left-0 flex flex-col justify-center  ease-in'>
+        <div className='bg-ebony-clay-500 w-full  h-full p-4 absolute z-50 left-0 flex flex-col justify-center   ease-in'>
           <div className='w-full flex justify-end mt-6'>
             <FontAwesomeIcon
-              className='text-xl text-white   '
+              className='text-xl text-white hover:text-orange-500   '
               icon={faClose}
               onClick={handleHamburguer}
             />
@@ -89,7 +89,7 @@ const NavBar = () => {
 
       <div className=' h-12 mr-4 flex items-center  self-start md:hidden'>
         <FontAwesomeIcon
-          className='text-xl '
+          className='text-xl hover:text-orange-500  '
           icon={faBars}
           onClick={handleHamburguer}
         />
@@ -107,7 +107,7 @@ const NavBar = () => {
           alt='amazonas'
         />
       </div>
-      <div className='bg-black  absolute w-full md:w-fit md:relative flex md:flex-col justify-center self-end md:self-center top-28 md:top-0 left-0  py-1 md:py-0 '>
+      <div className='bg-ebony-clay-500  absolute w-full md:w-fit md:relative flex md:flex-col justify-center self-end md:self-center top-28 md:top-0 left-0  py-1 md:py-0 '>
         <span className='hidden md:inline-block mx-10'>Hola</span>
         <div className='mx-5 font-bold'>
           <FontAwesomeIcon icon={faLocationDot} />
@@ -119,7 +119,7 @@ const NavBar = () => {
         className=' flex h-10 w-80 mx-2 md:w-96 absolute md:relative text-black self-end md:self-center '
       >
         <select
-          className='hidden md:flex md:w-2/6 rounded-l-full bg-white text-center'
+          className='hidden md:flex md:w-2/6 rounded-l-full bg-white text-center outline-none'
           name='categorias'
           onChange={handleInputChange}
         >
@@ -137,10 +137,10 @@ const NavBar = () => {
 
         <button
           type='submit'
-          className='bg-orange-400 flex items-center w-1/5 md:w-1/6 justify-center rounded-r-full'
+          className='bg-orange-peel-500 flex items-center w-1/5 md:w-1/6 justify-center rounded-r-full active:bg-orange-peel-600  '
         >
           <FontAwesomeIcon
-            className='text-black rounded-r-full'
+            className='text-black rounded-r-full hover:text-white'
             icon={faMagnifyingGlass}
           />
         </button>
@@ -156,7 +156,7 @@ const NavBar = () => {
         </div>
       </div>
       <div
-        className='h-6  md:h-12 self-start mt-3 md:mt-0    flex  md:self-end'
+        className='h-6  md:h-12 self-start mt-3 md:mt-0  hover:text-orange-peel-500 active:text-orange-peel-600  active:transform active:translate-y-1    flex  md:self-end'
         onClick={() => setModalCart(!modalCart)}
       >
         <FontAwesomeIcon className='h-4 md:h-6' icon={faCartShopping} />
@@ -164,7 +164,7 @@ const NavBar = () => {
       </div>
       <div className=' hidden md:flex flex-col justify-center '>
         <FontAwesomeIcon
-          className='text-white  rounded-r-full'
+          className='text-white hover:text-orange-peel-500 active:text-orange-peel-600 active:transform active:translate-y-1  rounded-r-full'
           icon={faArrowRightFromBracket}
           onClick={handleLogout}
         />

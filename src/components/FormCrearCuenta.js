@@ -1,6 +1,7 @@
 import { Field, Form, Formik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import Swal from 'sweetalert2';
 import * as Yup from 'yup';
 import { registerAsync } from '../Redux/actions/actionResgiter';
 
@@ -30,7 +31,22 @@ const FormCrearCuenta = () => {
   const dispatch = useDispatch();
   const handleSubmit = ({ email, password, nombre }) => {
     dispatch(registerAsync(email, password, nombre));
-    console.log(email, password, nombre);
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: 'success',
+      title: 'Cuenta Creada Correctamente',
+    });
   };
   return (
     <Formik

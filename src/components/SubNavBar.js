@@ -4,7 +4,7 @@ import React from 'react';
 
 const SubNavBar = () => {
   return (
-    <div className=' p-4  bg-zinc-900   hidden md:flex md:items-center  mt-8 md:mt-0 text-white'>
+    <div className=' p-4  bg-ebony-clay-500   hidden md:flex md:items-center  mt-8 md:mt-0 text-white'>
       <FontAwesomeIcon className='text-xl ' icon={faBars} />
       <ul className='flex  w-full  '>
         <li className='ml-7'>Todo</li>

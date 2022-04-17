@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footerfin = () => {
   return (
-    <div className='bg-slate-900 text-white py-8'>
+    <div className='bg-ebony-clay-600 0 text-white py-8'>
       <div className='flex flex-col md:flex-row justify-evenly w-8/12 md:w-full px-10  text-sm md:text-base '>
         <div>
           <h1 className='font-bold'>Conócenos</h1>
