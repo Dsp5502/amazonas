@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import Swal from 'sweetalert2';
 import { useForm } from '../../hooks/useForm';
 import { updateProductAsync } from '../../Redux/actions/actionProduct';
 
@@ -24,8 +25,25 @@ const FormEditarProducto = ({ editar, setModalEditar }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(updateProductAsync(values));
+
     console.log(values);
     setModalEditar(false);
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: 'success',
+      title: 'Editado Correctamente',
+    });
   };
 
   return (
@@ -36,7 +54,7 @@ const FormEditarProducto = ({ editar, setModalEditar }) => {
       <input
         type='text'
         name='id'
-        className='borderEnvio rounded-sm'
+        className='borderEnvio rounded-sm px-2'
         disabled
         value={id}
         onChange={handleInputChange}
@@ -48,7 +66,7 @@ const FormEditarProducto = ({ editar, setModalEditar }) => {
       <input
         type='text'
         name='nombre'
-        className='borderEnvio rounded-sm'
+        className='borderEnvio rounded-sm px-2'
         placeholder='ingrese producto'
         value={nombre}
         onChange={handleInputChange}
@@ -57,14 +75,14 @@ const FormEditarProducto = ({ editar, setModalEditar }) => {
         Descripcion
       </label>
       <textarea
-        className='borderEnvio rounded-sm'
+        className='borderEnvio rounded-sm px-2'
         placeholder='ingrese descripcion'
         name='descripcion'
         value={descripcion}
         onChange={handleInputChange}
       />
       <select
-        className='borderEnvio rounded-sm my-2'
+        className='borderEnvio rounded-sm my-2 px-2'
         name='categorias'
         value={categorias}
         onChange={handleInputChange}
@@ -79,7 +97,7 @@ const FormEditarProducto = ({ editar, setModalEditar }) => {
       <input
         type='number'
         name='precio'
-        className='borderEnvio rounded-sm'
+        className='borderEnvio rounded-sm px-2'
         placeholder='Ingrese Precio'
         value={precio}
         onChange={handleInputChange}
@@ -87,7 +105,7 @@ const FormEditarProducto = ({ editar, setModalEditar }) => {
       <input
         type='text'
         name='foto1'
-        className='borderEnvio rounded-sm my-2'
+        className='borderEnvio rounded-sm my-2 px-2'
         placeholder='Añadir foto'
         value={foto1}
         onChange={handleInputChange}
@@ -95,7 +113,7 @@ const FormEditarProducto = ({ editar, setModalEditar }) => {
       <input
         type='text'
         name='foto2'
-        className='borderEnvio rounded-sm my-2'
+        className='borderEnvio rounded-sm my-2 px-2'
         placeholder='Añadir foto'
         value={foto2}
         onChange={handleInputChange}
@@ -103,15 +121,12 @@ const FormEditarProducto = ({ editar, setModalEditar }) => {
       <input
         type='text'
         name='foto3'
-        className='borderEnvio rounded-sm my-2'
+        className='borderEnvio rounded-sm my-2 px-2'
         placeholder='Añadir foto'
         value={foto3}
         onChange={handleInputChange}
       />
-      <button
-        type='submit'
-        className='bg-amber-500 my-5 py-1 rounded-sm text-sm'
-      >
+      <button type='submit' className='btnOrange my-2 py-1 rounded-sm text-sm'>
         Editar
       </button>
     </form>

@@ -10,6 +10,7 @@ import {
   searchProductSync,
 } from '../../Redux/actions/actionProduct';
 import ModalEditar from './ModalEditar';
+import Swal from 'sweetalert2';
 
 const ListProductos = () => {
   const [modalEditar, setModalEditar] = useState(false);
@@ -26,10 +27,26 @@ const ListProductos = () => {
   useEffect(() => {
     dispatch(listProductAsync());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [values]);
+  }, [values.busqueda]);
 
   const eliminarProduct = (id) => {
     dispatch(deleteProductAsync(id));
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: 'success',
+      title: 'Eliminado Correctamente',
+    });
   };
 
   const editarProducto = (producto) => {
@@ -61,8 +78,11 @@ const ListProductos = () => {
           />
         </div>
 
-        <div className='p-2  cursor-pointer' onClick={volver}>
-          <FontAwesomeIcon className='mr-1 ' icon={faChevronLeft} />
+        <div
+          className='p-2  cursor-pointer hover:text-orange-peel-500'
+          onClick={volver}
+        >
+          <FontAwesomeIcon className='mr-1  ' icon={faChevronLeft} />
           Volver a Agregar Producto
         </div>
         <form
@@ -72,17 +92,20 @@ const ListProductos = () => {
           <input
             type='text'
             name='busqueda'
-            className='border-2 w-1/3 px-3 rounded-sm mx-2 border-amber-500 outline-none'
+            className='border-2 w-full lg:w-1/3 px-3 rounded-sm mx-2 border-amber-500 outline-none'
             placeholder='Buscar Producto....'
             onChange={handleInputChange}
           />
         </form>
 
-        {products.map((product) => (
+        {products.map((product, index) => (
           <div
             key={product.id}
             className='borderEnvio p-5 my-2 bg-slate-700 text-white shadow-sm rounded-md '
           >
+            <h2 className='font-bold text-amber-500 uppercase'>
+              # {index + 1}
+            </h2>
             <h2 className='font-bold text-amber-500 uppercase'>ID:</h2>
             <p className=' text-sm md:text-md'>{product.id}</p>
             <h2 className='font-bold text-amber-500 uppercase'>Nombre:</h2>
@@ -101,13 +124,13 @@ const ListProductos = () => {
             <p className=' text-sm md:text-md'>{product.foto3}</p>
             <div className='mx-auto  flex  m-5  w-11/12 md:w-2/3  '>
               <button
-                className='w-1/2 m-2 p-2 text-center rounded-md bg-blue-300 text-white '
+                className='w-1/2 m-2 p-2 text-center rounded-md btnEditar active:transform active:translate-y-1 shadow-xl'
                 onClick={() => editarProducto(product)}
               >
                 Editar
               </button>
               <button
-                className='w-1/2 m-2 p-2 text-center rounded-md bg-red-600 text-white '
+                className='w-1/2 m-2 p-2 text-center rounded-md btnEliminar  '
                 onClick={() => {
                   eliminarProduct(product.id);
                 }}
