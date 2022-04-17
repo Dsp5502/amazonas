@@ -11,6 +11,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
+import { urlAPI } from '../helpers/ApiUbicacion';
 import { useForm } from '../hooks/useForm';
 import { logoutAsync } from '../Redux/actions/actionLogin';
 import {
@@ -19,18 +21,23 @@ import {
   searchProductSync,
 } from '../Redux/actions/actionProduct';
 import ModalCart from './productSelect/ModalCart';
+import Ubicacion from './Ubicacion';
 
 const NavBar = () => {
   const [hamburguer, setHamburguer] = useState(false);
   const [modalCart, setModalCart] = useState(false);
+  const [ubicacionModal, setUbicacionModal] = useState(false);
   const { cart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { email } = useSelector((store) => store.login);
+
   const [values, handleInputChange] = useForm({
     busqueda: '',
     categorias: '',
   });
+  const [ubicacion, setUbicacion] = useState('');
+  const { region_name, zip_code, country_name, city, country_code } = ubicacion;
 
   const handleLogout = () => {
     dispatch(logoutAsync());
@@ -46,6 +53,19 @@ const NavBar = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values]);
 
+  useEffect(() => {
+    getLocation();
+  }, []);
+
+  const getLocation = () => {
+    fetch(urlAPI)
+      .then((response) => response.json())
+      .then((datosUbicacion) => {
+        setUbicacion(datosUbicacion);
+        console.log(ubicacion);
+      });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -54,6 +74,10 @@ const NavBar = () => {
     } else {
       dispatch(filterCategorySync(values.categorias));
     }
+  };
+
+  const modalactive = () => {
+    setUbicacionModal(!ubicacionModal);
   };
 
   return (
@@ -86,10 +110,26 @@ const NavBar = () => {
           </span>
         </div>
       )}
+      {ubicacionModal && (
+        <div className='bg-ebony-clay-500 w-full   top-0 absolute z-50 left-0 flex flex-col justify-start  items-center box-border  ease-in'>
+          <div className='w-8/12 flex flex-col justify-center items-center py-10 '>
+            <div className='w-full  flex justify-end     '>
+              <FontAwesomeIcon
+                className='text-xl text-white hover:text-orange-500    '
+                icon={faClose}
+                onClick={() => setUbicacionModal(false)}
+              />
+            </div>
+            <div className=' '>
+              <Ubicacion ubicacion={ubicacion} />
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className=' h-12 mr-4 flex items-center  self-start md:hidden'>
         <FontAwesomeIcon
-          className='text-xl hover:text-orange-500  '
+          className='text-xl hover:text-orange-peel-500  '
           icon={faBars}
           onClick={handleHamburguer}
         />
@@ -107,11 +147,16 @@ const NavBar = () => {
           alt='amazonas'
         />
       </div>
-      <div className='bg-ebony-clay-500  absolute w-full md:w-fit md:relative flex md:flex-col justify-center self-end md:self-center top-28 md:top-0 left-0  py-1 md:py-0 '>
-        <span className='hidden md:inline-block mx-10'>Hola</span>
-        <div className='mx-5 font-bold'>
+      <div
+        className='bg-ebony-clay-500  absolute w-full md:w-fit md:relative flex md:flex-col justify-center self-end md:self-center top-28 md:top-0 left-0  py-1 md:py-0 '
+        onClick={modalactive}
+      >
+        <span className='hidden md:inline-block mx-10'>Entregar en</span>
+        <div className='mx-5 font-bold cursor-pointer'>
           <FontAwesomeIcon icon={faLocationDot} />
-          <span className='ml-2'>Elige tu dirección</span>
+          <span className='ml-2'>
+            {region_name} {zip_code}{' '}
+          </span>
         </div>
       </div>
       <form

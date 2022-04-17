@@ -11,6 +11,7 @@ import ProductRelacion from '../ProductRelacion';
 
 import SubNavBar from '../SubNavBar';
 import SubNavBar2 from '../SubNavBar2';
+import Ubicacion from '../Ubicacion';
 import CardsPrducts from './CardsPrducts';
 
 const AllProductos = () => {
