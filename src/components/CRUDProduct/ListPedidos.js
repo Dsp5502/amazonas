@@ -39,6 +39,8 @@ const ListPedidos = () => {
               Numero Tarjeta:
             </h2>
             <p className=' text-sm md:text-md'>{values.cardNumber}</p>
+            <h2 className='font-bold text-amber-500 uppercase'>cvc</h2>
+            <p className=' text-sm md:text-md hidden'>{values.cvc}</p>
             <h2 className='font-bold text-amber-500 uppercase'>
               Fecha Vencimiento:
             </h2>
@@ -49,8 +51,10 @@ const ListPedidos = () => {
             <p className=' text-sm md:text-md'>
               {values.fechaPedido.toString()}
             </p>
-            <h2 className='font-bold text-amber-500 uppercase'>cvc</h2>
-            <p className=' text-sm md:text-md hidden'>{values.cvc}</p>
+            <h2 className='font-bold text-amber-500 uppercase'>
+              Dirección de Envio
+            </h2>
+            <p className=' text-sm md:text-md uppercase'>{values.domicilio}</p>
 
             <div className='mx-auto  flex  m-5  w-11/12 md:w-2/3  '></div>
             <h3 className='text-amber-500 uppercase font-2xl'>Articulos </h3>

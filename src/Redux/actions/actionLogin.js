@@ -76,7 +76,7 @@ export const logoutAsync = () => {
   return async (dispatch) => {
     const auth = getAuth();
     signOut(auth)
-      .then(({ user }) => {
+      .then((user) => {
         dispatch(logoutSync());
         console.log('Usuario deslogueado');
       })

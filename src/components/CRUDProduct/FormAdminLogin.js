@@ -1,6 +1,7 @@
 import { Field, Form, Formik } from 'formik';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import * as Yup from 'yup';
 
 const SignupSchema = Yup.object().shape({
@@ -24,6 +25,11 @@ export const FormLoginAdmin = ({ setIsAdminLog }) => {
       navigate('/addProduct');
     } else {
       setIsAdminLog(false);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'La Contraseña y Usuario no coinciden !',
+      });
     }
   };
 

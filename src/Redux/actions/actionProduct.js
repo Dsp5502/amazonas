@@ -95,7 +95,6 @@ export const updateProductAsync = (product) => {
     await updateDoc(documRef, product)
       .then((resp) => {
         dispatch(updateProductSync(product));
-        console.log(resp);
       })
       .catch((error) => {
         console.warn(error);
@@ -116,7 +115,6 @@ export const searchProductSync = (product) => {
 //* filter filterCategory
 
 export const filterCategorySync = (product) => {
-  console.log(product);
   return {
     type: typesProduct.filterCategory,
     payload: product,
