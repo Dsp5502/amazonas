@@ -20,8 +20,8 @@ const Cards = ({ datoProducto }) => {
         {products.map((pr) => (
           <div className=' w-full md:w-3/12   p-4'>
             <img className='w-full h-72' src={pr.foto1} alt={pr.foto1} />
-            <p className='text-emerald-400 my-3'>{pr.nombre}</p>
-            <span className='flex text-red-600 my-3'> ${pr.precio}</span>
+            <p className='text-blue-400 my-3'>{pr.nombre}</p>
+            <span className='flex text-black my-3'> ${pr.precio}</span>
           </div>
         ))}
       </div>

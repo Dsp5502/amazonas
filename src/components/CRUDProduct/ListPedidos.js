@@ -74,31 +74,6 @@ const ListPedidos = () => {
             )}
           </div>
         ))}
-
-        {/* {pedidos.map((pedidos, index) => (
-          <div
-            key={pedidos.id}
-            className='borderEnvio p-5 my-2 bg-slate-700 text-white shadow-sm rounded-md '
-          >
-            <h2 className='font-bold text-amber-500 uppercase'>ID:</h2>
-            <p className=' text-sm md:text-md'>{pedidos.cart.id}</p>
-            <h2 className='font-bold text-amber-500 uppercase'>Nombre:</h2>
-            <p className=' text-sm md:text-md'>{pedidos.cart.nombre}</p>
-            <h2 className='font-bold text-amber-500 uppercase'>Descripcion:</h2>
-            <p className=' text-sm md:text-md'>{pedidos.cart.descripcion}</p>
-            <h2 className='font-bold text-amber-500 uppercase'>Categorias:</h2>
-            <p className=' text-sm md:text-md'>{pedidos.cart.categorias}</p>
-            <h2 className='font-bold text-amber-500 uppercase'>Precio:</h2>
-            <p className=' text-sm md:text-md'>{pedidos.cart.precio}</p>
-            <h2 className='font-bold text-amber-500 uppercase'>Foto1:</h2>
-            <p className=' text-sm md:text-md'>{pedidos.cart.foto1}</p>
-            <h2 className='font-bold text-amber-500 uppercase'>Foto2:</h2>
-            <p className=' text-sm md:text-md'>{pedidos.cart.foto2}</p>
-            <h2 className='font-bold text-amber-500 uppercase'>Foto3:</h2>
-            <p className=' text-sm md:text-md'>{pedidos.cart.foto3}</p>
-            <div className='mx-auto  flex  m-5  w-11/12 md:w-2/3  '></div>
-          </div>
-        ))} */}
       </div>
     </>
   );

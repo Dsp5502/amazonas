@@ -3,6 +3,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import uuid from 'react-uuid';
+import Swal from 'sweetalert2';
 import * as Yup from 'yup';
 import { emptyCartSync } from '../../Redux/actions/actionCart';
 import { addPedidos } from '../../Redux/actions/actionPedidos';
@@ -23,15 +24,31 @@ const SignupSchema = Yup.object().shape({
   domicilio: Yup.string().required('Este Campo Es obligatorio'),
 });
 
-const DatosPago = ({ cart }) => {
+const DatosPago = ({ cart, suma }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = (values) => {
-    console.log({ values, cart });
-    dispatch(addPedidos({ values, cart }));
-    dispatch(emptyCartSync());
-    navigate('/');
+    Swal.fire({
+      title: 'Confirmar Compra?',
+      text: `Tu vas a pagar $${suma.toFixed(2)}`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Comprar!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Compra exitosa!',
+          'Tus Productos van en Camino Gracias!!!',
+          'success'
+        );
+        dispatch(addPedidos({ values, cart }));
+        dispatch(emptyCartSync());
+        navigate('/');
+      }
+    });
   };
 
   return (
@@ -134,7 +151,7 @@ const DatosPago = ({ cart }) => {
 
           <button
             type='submit'
-            className='bg-amber-500 my-2 py-1 rounded-sm text-sm'
+            className='btnOrange my-2 py-1 rounded-sm text-sm'
           >
             Pagar
           </button>

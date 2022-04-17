@@ -18,7 +18,7 @@ const AllProductos = () => {
   const [datoProducto, setDatoProducto] = useState([]);
   const dispatch = useDispatch();
   const { products } = useSelector((store) => store.product);
-  console.log(products);
+
   useEffect(() => {
     dispatch(listProductAsync());
     // eslint-disable-next-line react-hooks/exhaustive-deps

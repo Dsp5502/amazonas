@@ -3,8 +3,6 @@ import React from 'react';
 const Descripcion = ({ descripcion, precio, nombre, categorias }) => {
   const cuotas = (Number(precio) / 18).toFixed(2);
 
-  console.log(cuotas);
-
   return (
     <div className='p-4 flex flex-col '>
       <h1 className='font-bold text-2xl'>{nombre}</h1>

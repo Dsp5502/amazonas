@@ -9,7 +9,6 @@ const FormAddProduct = ({ setIsAdminLog }) => {
 
   const logout = () => {
     setIsAdminLog(false);
-    console.log('logout');
     navigate(-1);
   };
 

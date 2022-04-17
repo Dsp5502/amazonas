@@ -15,7 +15,7 @@ const PasarelaPagos = () => {
       <div className='  container mx-auto md:my-5 '>
         <h2 className='text-center font-bold text-4xl'>Resumen Compra</h2>
         <span
-          className='my-4 cursor-pointer mx-5'
+          className='my-4 cursor-pointer mx-5 hover:text-orange-peel-500'
           onClick={() => {
             navigate('/productos');
           }}
@@ -23,14 +23,14 @@ const PasarelaPagos = () => {
           <FontAwesomeIcon className='mr-1' icon={faChevronLeft} />
           Volver a los Resultados
         </span>
-        <div className='w-full flex flex-col md:flex-row mt-5'>
-          <div className='w-1/2 shadow-2xl mx-2 rounded-md'>
-            <h3 className='font-bold text-center text-3xl mt-2 text-amber-500'>
+        <div className='w-full flex flex-col justify-center items-center lg:flex-row mt-5'>
+          <div className='lg:w-1/2 shadow-2xl mx-2 mt-5 rounded-md'>
+            <h3 className='font-bold text-center text-3xl mt-2 text-orange-peel-500'>
               Detalle Productos
             </h3>
             <div className='w-full flex flex-col md:flex-row'>
-              <div>
-                <table className='border-collapse m-5'>
+              <div className='flex justify-center w-full'>
+                <table className='border-collapse m-5 '>
                   <tr className=''>
                     <th className='border-2 p-3'>Foto</th>
                     <th className='border-2 p-3'>Nombre</th>
@@ -54,11 +54,11 @@ const PasarelaPagos = () => {
               </div>
             </div>
           </div>
-          <div className='w-1/2 flex flex-col justify-center  shadow-2xl  mx-2 bg-slate-700 rounded-md'>
-            <h3 className='font-bold text-center mt-2 text-3xl text-amber-500'>
+          <div className='lg:w-1/2 flex flex-col justify-center mt-5  shadow-2xl  mx-2 bg-slate-700 rounded-md'>
+            <h3 className='font-bold text-center mt-2 text-3xl text-orange-peel-500'>
               Datos de Pago
             </h3>
-            <DatosPago cart={cart} />
+            <DatosPago cart={cart} suma={suma} />
           </div>
         </div>
       </div>

@@ -26,7 +26,6 @@ const FormEditarProducto = ({ editar, setModalEditar }) => {
     e.preventDefault();
     dispatch(updateProductAsync(values));
 
-    console.log(values);
     setModalEditar(false);
     const Toast = Swal.mixin({
       toast: true,

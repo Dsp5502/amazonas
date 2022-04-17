@@ -2,7 +2,6 @@ import React from 'react';
 
 const CardsPrducts = ({ product, setPrueba, setDatoProducto }) => {
   const productoDetail = (pro) => {
-    console.log(pro);
     setDatoProducto(pro);
     setPrueba(false);
   };

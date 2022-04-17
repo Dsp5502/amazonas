@@ -19,9 +19,7 @@ export const FormLoginAdmin = ({ setIsAdminLog }) => {
   const navigate = useNavigate();
 
   const handleSubmit = ({ email, password }) => {
-    console.log(email, password);
     if (email === 'dsp5502@gmail.com' && password === '12345678') {
-      console.log('admin');
       setIsAdminLog(true);
       navigate('/addProduct');
     } else {
