@@ -15,7 +15,7 @@ const CardsPrducts = ({ product, setPrueba, setDatoProducto }) => {
           productoDetail(product);
         }}
       >
-        <div className=' w-full h-full p-4 flex flex-col'>
+        <div className=' w-full h-full p-4 flex flex-col justify-center'>
           <img className='h-52' src={product.foto1} alt='' />
           <div>
             <p className='text-black my-3 '>{product.nombre}</p>

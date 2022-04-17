@@ -17,7 +17,7 @@ const ProductoSelec = ({ datoProducto, setPrueba }) => {
   return (
     <div className=' mt-8 md:mt-0 flex flex-col mx-auto w-11/12 '>
       <span
-        className='my-4 cursor-pointer'
+        className='my-4 cursor-pointer hover:text-orange-peel-500'
         onClick={() => {
           setPrueba(true);
           dispatch(listProductAsync());
@@ -26,8 +26,8 @@ const ProductoSelec = ({ datoProducto, setPrueba }) => {
         <FontAwesomeIcon className='mr-1' icon={faChevronLeft} />
         Volver a los Resultados
       </span>
-      <div className='w-full flex flex-col md:flex-row'>
-        <div className=' w-full md:w-12'>
+      <div className='w-full flex flex-col lg:flex-row'>
+        <div className=' w-full lg:w-12 cursor-pointer'>
           {' '}
           <MinFotos
             foto1={foto1}
@@ -36,10 +36,10 @@ const ProductoSelec = ({ datoProducto, setPrueba }) => {
             setFotoSelec={setFotoSelec}
           />{' '}
         </div>
-        <div className='w-full md:w-5/12 flex justify-center items-center'>
+        <div className='w-full lg:w-5/12 mt-5 md:mt-2 flex justify-center items-start'>
           <ImgSelect fotoSelec={fotoSelec} />
         </div>
-        <div className='w-full md:w-4/12'>
+        <div className='w-full lg:w-4/12'>
           <Descripcion
             descripcion={descripcion}
             nombre={nombre}
@@ -47,7 +47,7 @@ const ProductoSelec = ({ datoProducto, setPrueba }) => {
             categorias={categorias}
           />
         </div>
-        <div className='w-full md:w-2/12 my-4'>
+        <div className='w-full lg:w-2/12 my-4'>
           <Envio datoProducto={datoProducto} />
         </div>
       </div>

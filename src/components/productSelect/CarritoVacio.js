@@ -16,7 +16,7 @@ const CarritoVacio = ({ setModalCart }) => {
       <h2 className='text-4xl mt-5'>Carrito Vacio</h2>
       <FontAwesomeIcon className='mt-5 text-9xl' icon={faCartPlus} />
       <button
-        className='my-5 font-bold border-2 p-2 text-2xl'
+        className='my-5 font-bold btnAgregar p-2 text-2xl'
         onClick={() => {
           handleClick();
         }}

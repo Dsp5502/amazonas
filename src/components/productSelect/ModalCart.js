@@ -37,18 +37,18 @@ const ModalCart = ({ setModalCart }) => {
   cart.map((ca) => (suma = suma + Number(ca.precio)));
 
   return (
-    <div className='w-2/3 bg-slate-700 flex flex-col px-5  rounded-md  py-5 h-screen  overflow-y-scroll	 '>
+    <div className='  w-screen lg:w-2/3 bg-ebony-clay-500 flex flex-col px-5  rounded-md  py-5 h-screen  overflow-y-scroll	 '>
       <div>
-        <h2 className='text-4xl mr-4 my-5'>Carrito De compras</h2>
+        <h2 className='text-4xl mr-4 my-5 uppercase'>Carrito de Compras</h2>
         <div
-          className='p-2 flex  items-center justify-between  cursor-pointer text-amber-500'
+          className='p-2 flex  items-center justify-between  cursor-pointer '
           onClick={volver}
         >
-          <div>
+          <div className='hover:text-orange-peel-500'>
             <FontAwesomeIcon className='mr-1  ' icon={faChevronLeft} />
             Volver
           </div>
-          <span className='text-red-400' onClick={vaciarCarrito}>
+          <span className='hover:text-red-500' onClick={vaciarCarrito}>
             Vaciar Carrito
           </span>
         </div>
@@ -69,7 +69,7 @@ const ModalCart = ({ setModalCart }) => {
         </p>
         {cart.length > 0 && (
           <p
-            className='m-3 text-amber-500 cursor-pointer'
+            className='m-3 hover:text-orange-peel-500 font-bold uppercase cursor-pointer'
             onClick={() => {
               setModalCart(false);
               navigate('/pagar');

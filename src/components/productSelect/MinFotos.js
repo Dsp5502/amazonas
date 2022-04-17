@@ -6,9 +6,9 @@ const MinFotos = ({ foto1, foto2, foto3, setFotoSelec }) => {
   };
 
   return (
-    <div className='flex   md:flex-col justify-around md:justify-center items-center  '>
+    <div className='flex   lg:flex-col justify-around lg:justify-center items-center  '>
       <div
-        className='  w-2/12  md:w-10/12 text-center md:mt-8 mb-2 border-2 border-black  '
+        className='  w-2/12  lg:w-10/12 text-center lg:mt-8 mb-2 border-2 border-black  '
         onClick={() => {
           imagen(foto1);
         }}
@@ -16,7 +16,7 @@ const MinFotos = ({ foto1, foto2, foto3, setFotoSelec }) => {
         <img src={foto1} alt='minFoto' className='w-full h-18' />
       </div>
       <div
-        className='  w-2/12  md:w-10/12 text-center border-2 border-black mb-2  '
+        className='  w-2/12  lg:w-10/12 text-center border-2 border-black mb-2  '
         onClick={() => {
           imagen(foto2);
         }}
@@ -24,7 +24,7 @@ const MinFotos = ({ foto1, foto2, foto3, setFotoSelec }) => {
         <img src={foto2} alt='minFoto' className='w-full h-18' />
       </div>
       <div
-        className=' w-2/12  md:w-10/12 text-center  border-2 border-black mb-2 '
+        className=' w-2/12  lg:w-10/12 text-center  border-2 border-black mb-2 '
         onClick={() => {
           imagen(foto3);
         }}

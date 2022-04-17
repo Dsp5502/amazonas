@@ -3,11 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import dateJs from 'date.js';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { addCartSync } from '../../Redux/actions/actionCart';
 
 const Envio = ({ datoProducto }) => {
-  const { categorias, descripcion, foto1, foto2, foto3, nombre, precio } =
-    datoProducto;
+  const { precio } = datoProducto;
   const dispatch = useDispatch();
   const diaPasado = dateJs('5 days after');
   const diaPasadoFin = dateJs('7 days after');
@@ -79,8 +80,23 @@ const Envio = ({ datoProducto }) => {
   }
 
   const agregarCarritoProducto = (product) => {
-    console.log(product);
     dispatch(addCartSync(product));
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: 'success',
+      title: 'Agregado al carrito',
+    });
   };
 
   return (
@@ -88,7 +104,7 @@ const Envio = ({ datoProducto }) => {
       <p className='text-red-600 text-2xl my-2'>${precio}</p>
       <p className='font-bold text-sm my-2'>
         Envio GRATIS.{' '}
-        <span className='font-light text-emerald-400 '>Detalles</span>{' '}
+        <span className='font-light text-blue-400 '>Detalles</span>{' '}
       </p>
       <p className='my-2'>
         Llega :{' '}
@@ -100,21 +116,24 @@ const Envio = ({ datoProducto }) => {
 
       <div>
         <button
-          className='rounded-sm w-11/12 m-2 py-2 bg-amber-500  flex justify-evenly'
+          className='rounded-sm w-11/12 m-2 py-2 btnOrange  flex justify-evenly'
           onClick={() => {
             agregarCarritoProducto(datoProducto);
           }}
         >
-          <FontAwesomeIcon
-            className='text-white bg-gray-500 '
-            icon={faCartShopping}
-          />
+          <FontAwesomeIcon className='  ' icon={faCartShopping} />
           <span className='text-xs'> Agregar al Carrito</span>
         </button>
-        <button className='rounded-sm w-11/12 m-2 p-2 bg-amber-500 flex justify-evenly'>
-          <FontAwesomeIcon className='text-white bg-gray-500 ' icon={faPlay} />
+        <Link
+          to={'/pagar'}
+          className='rounded-sm w-11/12 m-2 p-2 btnOrange flex justify-evenly'
+          onClick={() => {
+            agregarCarritoProducto(datoProducto);
+          }}
+        >
+          <FontAwesomeIcon className='  ' icon={faPlay} />
           <span className='text-xs'> Comprar Ahora</span>
-        </button>
+        </Link>
       </div>
       <span className='text-blue-500 text-center'>Transacción segura</span>
     </div>

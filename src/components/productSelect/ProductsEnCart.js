@@ -2,6 +2,7 @@ import { faClose, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import Swal from 'sweetalert2';
 import { addCartSync, deleteCartSync } from '../../Redux/actions/actionCart';
 
 const ProductsEnCart = ({ carritoSinDuplicado }) => {
@@ -9,10 +10,42 @@ const ProductsEnCart = ({ carritoSinDuplicado }) => {
 
   const borrardelCarrito = (id) => {
     dispatch(deleteCartSync(id));
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: 'error',
+      title: 'Eliminado del carrito',
+    });
   };
 
   const agregarCarritoProducto = (product) => {
     dispatch(addCartSync(product));
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: 'success',
+      title: 'Agregado al carrito',
+    });
   };
 
   return (
@@ -30,7 +63,7 @@ const ProductsEnCart = ({ carritoSinDuplicado }) => {
               <span>
                 {item.cantidad} X ${item.precio}
               </span>
-              <div className='  flex  justify-center bg-green-700 py-1 w-2/3 mt-2 '>
+              <div className='  flex  justify-center btnVerde py-1 w-2/3 mt-2 '>
                 <FontAwesomeIcon
                   icon={faPlus}
                   onClick={() => {
@@ -40,7 +73,7 @@ const ProductsEnCart = ({ carritoSinDuplicado }) => {
               </div>
             </div>
             <FontAwesomeIcon
-              className='text-red-400 p-4 text-2xl '
+              className='hover:text-red-500 p-4 text-2xl '
               icon={faClose}
               onClick={() => borrardelCarrito(item.id)}
             />
