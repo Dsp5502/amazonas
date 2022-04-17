@@ -49,7 +49,7 @@ export const FormLoginAdmin = ({ setIsAdminLog }) => {
             name='email'
             placeholder='Ingresa tu correo'
             type='email'
-            className='borderEnvio rounded-sm'
+            className='borderEnvio rounded-sm px-2'
           />
           {errors.email && touched.email ? (
             <div className='text-red-500 text-xs italic'>{errors.email}</div>
@@ -61,14 +61,14 @@ export const FormLoginAdmin = ({ setIsAdminLog }) => {
             name='password'
             placeholder='Ingresa tu contraseña'
             type='password'
-            className='borderEnvio rounded-sm'
+            className='borderEnvio rounded-sm px-2'
           />
           {errors.password && touched.password ? (
             <div className='text-red-500 text-xs italic'>{errors.password}</div>
           ) : null}
           <button
             type='submit'
-            className='bg-amber-500 my-2 py-1 rounded-sm text-sm'
+            className='btnOrange my-2 py-1 rounded-sm text-sm'
           >
             Continue
           </button>

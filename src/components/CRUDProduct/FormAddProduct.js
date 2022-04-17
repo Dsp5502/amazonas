@@ -30,14 +30,14 @@ const FormAddProduct = ({ setIsAdminLog }) => {
             className='  w-full flex justify-between  items-center cursor-pointer '
             onClick={logout}
           >
-            <h2 className=' text-xl mb-1'>Agrega Nuevo Producto</h2>
-            <span className=''>
-              Log out
+            <h2 className=' text-xl mb-3'>Agrega Nuevo Producto</h2>
+            <p className='hover:text-orange-peel-500 '>
+              <span className='hidden lg:inline-block'>Log Out</span>
               <FontAwesomeIcon
                 className='mx-2'
                 icon={faArrowRightFromBracket}
               />
-            </span>
+            </p>
           </div>
           <ProductFormAdd />
         </div>

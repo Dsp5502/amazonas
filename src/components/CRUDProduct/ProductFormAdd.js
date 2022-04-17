@@ -24,7 +24,6 @@ const ProductFormAdd = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values);
     dispatch(addProductAsync(values));
     reset();
   };
@@ -44,7 +43,6 @@ const ProductFormAdd = () => {
   };
   const handleFileChange2 = (e) => {
     const file = e.target.files[0];
-    console.log(file);
 
     FileUp(file)
       .then((resp) => {
@@ -57,7 +55,6 @@ const ProductFormAdd = () => {
   };
   const handleFileChange3 = (e) => {
     const file = e.target.files[0];
-    console.log(file);
 
     FileUp(file)
       .then((resp) => {
@@ -77,8 +74,8 @@ const ProductFormAdd = () => {
       <input
         type='text'
         name='nombre'
-        className='borderEnvio rounded-sm'
-        placeholder='ingrese producto'
+        className='borderEnvio rounded-sm px-2'
+        placeholder='Ingrese  Nombre Producto'
         value={nombre}
         onChange={handleInputChange}
       />
@@ -86,8 +83,8 @@ const ProductFormAdd = () => {
         Descripcion
       </label>
       <textarea
-        className='borderEnvio rounded-sm'
-        placeholder='ingrese descripcion'
+        className='borderEnvio rounded-sm px-2'
+        placeholder='Ingrese descripción'
         name='descripcion'
         value={descripcion}
         onChange={handleInputChange}
@@ -108,7 +105,7 @@ const ProductFormAdd = () => {
       <input
         type='number'
         name='precio'
-        className='borderEnvio rounded-sm'
+        className='borderEnvio rounded-sm px-2'
         placeholder='Ingrese Precio'
         value={precio}
         onChange={handleInputChange}
@@ -139,7 +136,7 @@ const ProductFormAdd = () => {
       />
       <button
         type='submit'
-        className='bg-amber-500 my-2 py-1 rounded-sm text-sm'
+        className='btnOrange my-2 py-1 rounded-sm text-sm active:transform active:translate-y-1 shadow-2xl'
       >
         Agregar
       </button>
@@ -147,14 +144,14 @@ const ProductFormAdd = () => {
         <Link
           to='/listProductos'
           type='submit'
-          className='bg-green-500 m-2 py-1 rounded-sm text-sm text-center w-1/2'
+          className='btnVerde m-2 py-1 rounded-sm text-sm text-center w-1/2 active:transform active:translate-y-1 shadow-2xl'
         >
           Consultar Productos
         </Link>
         <Link
           to='/listPedidos'
           type='submit'
-          className='bg-blue-500 m-2 py-1 rounded-sm text-sm text-center w-1/2'
+          className='btnAzul m-2 py-1 rounded-sm text-sm text-center w-1/2 active:transform active:translate-y-1 shadow-2xl'
         >
           Consultar Pedidos
         </Link>

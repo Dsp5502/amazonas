@@ -21,12 +21,12 @@ const AdminLogin = ({ setIsAdminLog }) => {
             alt='amazonas'
           />
         </div>
-        <div className='borderEnvio  md:w-full  flex flex-col px-5 py-2'>
+        <div className='borderEnvio   md:w-full  flex flex-col px-5 py-2'>
           <h2 className=' text-xl mb-1'>Ingresar Admin</h2>
           <FormLoginAdmin setIsAdminLog={setIsAdminLog} />
         </div>
         <div
-          className='p-2 w-full flex items-center  cursor-pointer'
+          className='p-2 w-full flex items-center  cursor-pointer hover:text-orange-peel-500 active:transform active:translate-y-1'
           onClick={volver}
         >
           <FontAwesomeIcon className='mr-1 ' icon={faChevronLeft} />
