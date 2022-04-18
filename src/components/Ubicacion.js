@@ -1,7 +1,30 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-const Ubicacion = ({ ubicacion }) => {
+import { useForm } from '../hooks/useForm';
+
+const Ubicacion = ({
+  ubicacion,
+  email,
+  setDireccion,
+  setDirecModi,
+  setUbicacionModal,
+  direcModi,
+  direccion,
+}) => {
   const { region_name, zip_code, country_name, city, country_code } = ubicacion;
+
+  const [values, handleInputChange, reset] = useForm({
+    direccion: '',
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(values.direccion);
+    setDireccion(values.direccion);
+    setDirecModi(true);
+    setUbicacionModal(false);
+    reset();
+  };
 
   return (
     <>
@@ -11,29 +34,46 @@ const Ubicacion = ({ ubicacion }) => {
         Las opciones de entrega y las velocidades de entrega pueden variar según
         la ubicación
       </p>
-      <div className='borderEnvio flex flex-col'>
-        <p className=''>
-          Entregar a <span className=''>nombre</span>{' '}
-        </p>
-        <p className=''>
-          Pais: <span className=''>{country_name}</span>{' '}
-        </p>
-        <p className=''>
-          Ciudad:{' '}
-          <span className=''>
-            {city} {region_name}
-          </span>{' '}
-        </p>
-        <p className=''>
-          Codigo Postal{' '}
-          <span className=''>
-            {zip_code} {country_code}
-          </span>{' '}
-        </p>
-      </div>
-      <h3>O ingrese su dirección</h3>
-      <form className='flex flex-col'>
-        <input type='text' placeholder='Dirección' />
+      {direcModi ? (
+        <div className='borderEnvio flex flex-col py-5 text-orange-peel-500'>
+          <p className=''>
+            Entregar a: <span className='text-white'>{email}</span>{' '}
+          </p>
+          <p>
+            Dirección: <span className='text-white'>{direccion}</span>{' '}
+          </p>
+        </div>
+      ) : (
+        <div className='borderEnvio flex flex-col'>
+          <p className=''>
+            Entregar a: <span className=''>{email}</span>{' '}
+          </p>
+          <p className=''>
+            Pais: <span className=''>{country_name}</span>{' '}
+          </p>
+          <p className=''>
+            Ciudad:{' '}
+            <span className=''>
+              {city} {region_name}
+            </span>{' '}
+          </p>
+          <p className=''>
+            Codigo Postal:{' '}
+            <span className=''>
+              {country_code} {zip_code}
+            </span>{' '}
+          </p>
+        </div>
+      )}
+      <h3 className='my-5 text-center'>O Ingrese su dirección</h3>
+      <form onSubmit={handleSubmit} className='flex flex-col'>
+        <input
+          type='text'
+          name='direccion'
+          placeholder='Dirección'
+          className='bg-ebony-clay border-2 border-white px-2 text-orange-peel-500'
+          onChange={handleInputChange}
+        />
       </form>
     </>
   );

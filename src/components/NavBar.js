@@ -27,6 +27,8 @@ const NavBar = () => {
   const [hamburguer, setHamburguer] = useState(false);
   const [modalCart, setModalCart] = useState(false);
   const [ubicacionModal, setUbicacionModal] = useState(false);
+  const [direcModi, setDirecModi] = useState(false);
+  const [direccion, setDireccion] = useState('');
   const { cart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -37,7 +39,7 @@ const NavBar = () => {
     categorias: '',
   });
   const [ubicacion, setUbicacion] = useState('');
-  const { region_name, zip_code, country_name, city, country_code } = ubicacion;
+  const { region_name, zip_code } = ubicacion;
 
   const handleLogout = () => {
     dispatch(logoutAsync());
@@ -55,6 +57,7 @@ const NavBar = () => {
 
   useEffect(() => {
     getLocation();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getLocation = () => {
@@ -98,7 +101,7 @@ const NavBar = () => {
               onClick={handleHamburguer}
             />
           </div>
-          <span className='md:mx-5 text-white my-2'>Hola, {email}</span>
+          <span className='md:mx-5 text-white my-2'> Hola, {email}</span>
 
           <span className='flex justify-between w-full my-2'>
             Log out
@@ -121,7 +124,15 @@ const NavBar = () => {
               />
             </div>
             <div className=' '>
-              <Ubicacion ubicacion={ubicacion} />
+              <Ubicacion
+                ubicacion={ubicacion}
+                email={email}
+                setDirecModi={setDirecModi}
+                setDireccion={setDireccion}
+                setUbicacionModal={setUbicacionModal}
+                direcModi={direcModi}
+                direccion={direccion}
+              />
             </div>
           </div>
         </div>
@@ -155,7 +166,13 @@ const NavBar = () => {
         <div className='mx-5 font-bold cursor-pointer'>
           <FontAwesomeIcon icon={faLocationDot} />
           <span className='ml-2'>
-            {region_name} {zip_code}{' '}
+            {direcModi ? (
+              <span>{direccion}</span>
+            ) : (
+              <span>
+                {region_name} {zip_code}{' '}
+              </span>
+            )}
           </span>
         </div>
       </div>
