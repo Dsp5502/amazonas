@@ -14,7 +14,7 @@ const CardsBusqueda = () => {
             src='https://res.cloudinary.com/djjgtili7/image/upload/v1649744136/amazonas/1_ficfgg.png'
             alt=''
           />
-          <p className='text-emerald-400 my-3'>
+          <p className='text-blue-400 my-3'>
             PS5 Call of Duty Black Ops: Cold War - Standard Edition -
             PlayStation 5
           </p>
@@ -26,7 +26,7 @@ const CardsBusqueda = () => {
             src='https://res.cloudinary.com/djjgtili7/image/upload/v1649744136/amazonas/2_nf49bl.png'
             alt=''
           />
-          <p className='text-emerald-400 my-3'>
+          <p className='text-blue-400 my-3'>
             Ghost of Tsushima - Standard Edition - PlayStation 4
           </p>
           <span className='flex text-red-600 my-3'> $999.00</span>
@@ -37,7 +37,7 @@ const CardsBusqueda = () => {
             src='https://res.cloudinary.com/djjgtili7/image/upload/v1649744136/amazonas/4_k6yxlc.png'
             alt=''
           />
-          <p className='text-emerald-400 my-3'>
+          <p className='text-blue-400 my-3'>
             Mortal Kombat 11 Ultimate - Standard Edition - PlayStation 5
           </p>
           <span className='flex text-red-600 my-3'>$1,359.99 </span>
@@ -48,7 +48,7 @@ const CardsBusqueda = () => {
             src='https://res.cloudinary.com/djjgtili7/image/upload/v1649744136/amazonas/3_lkzviy.png'
             alt=''
           />
-          <p className='text-emerald-400 my-3'>
+          <p className='text-blue-400 my-3'>
             Just Dance 2021 - PS5 - Standard Edition - PlayStation 5
           </p>
           <span className='flex text-red-600 my-3'>$1,019.99</span>

@@ -20,27 +20,34 @@ const Ubicacion = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values.direccion);
-    setDireccion(values.direccion);
-    setDirecModi(true);
-    setUbicacionModal(false);
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer);
-        toast.addEventListener('mouseleave', Swal.resumeTimer);
-      },
-    });
+    if (values.direccion !== '') {
+      setDireccion(values.direccion);
+      setDirecModi(true);
+      setUbicacionModal(false);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer);
+          toast.addEventListener('mouseleave', Swal.resumeTimer);
+        },
+      });
 
-    Toast.fire({
-      icon: 'success',
-      title: 'Dirección actualizada',
-    });
-    reset();
+      Toast.fire({
+        icon: 'success',
+        title: 'Dirección actualizada',
+      });
+      reset();
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Debes ingresar una dirección',
+      });
+    }
   };
 
   return (
