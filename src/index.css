@@ -350,18 +350,3 @@ tr:nth-child(even) {
 .btnAgregar:hover {
   color: #ff9900;
 }
-
-.swal2-popup {
-  max-width: 75% !important;
-  background-color: rgb(35 47 62) !important;
-  max-height: 40%;
-  border-radius: 5px;
-}
-
-@media (min-width: 768px) {
-  .swal2-popup {
-    max-width: 25% !important;
-    background-color: rgb(35 47 62) !important;
-    max-height: 60%;
-  }
-}

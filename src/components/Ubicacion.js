@@ -1,4 +1,5 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 
 import { useForm } from '../hooks/useForm';
 
@@ -23,6 +24,22 @@ const Ubicacion = ({
     setDireccion(values.direccion);
     setDirecModi(true);
     setUbicacionModal(false);
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: 'success',
+      title: 'Dirección actualizada',
+    });
     reset();
   };
 
