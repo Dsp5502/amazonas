@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+<img width="900" alt="image" src="https://user-images.githubusercontent.com/90290626/163744162-1a7436c2-c7c5-467b-adf4-c161bde3b7b3.png">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img width="900" alt="image" src="https://user-images.githubusercontent.com/90290626/163742604-90315277-1d40-4a6b-9500-1adce9ab60bc.png">
 
-## Available Scripts
+# Amazonas
 
-In the project directory, you can run:
+## Despliegue
+https://as-31b4d.web.app/login 
 
-### `npm start`
+# Repositorio
+https://github.com/Dsp5502/amazonas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Proyecto Amazonas  -  Sprint 3  - Academia Geek
 
-### `npm test`
+## Tecnologias 
+React
+Tailwind
+Firebase
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## 🔧 Funciones
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Creación  nuevo Usuario:
+<img width="900" alt="image" src="https://user-images.githubusercontent.com/90290626/163743692-b1b85925-dae1-403d-bb8a-5751485fbcc0.png">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img width="900" alt="image" src="https://user-images.githubusercontent.com/90290626/163743774-3a1d16ce-77cd-4b07-8309-ec22c043930b.png">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+###  Login  con facebook o google
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img width="900" alt="image" src="https://user-images.githubusercontent.com/90290626/163743888-9ae64935-ffd3-4735-be09-72b2ce75e180.png">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<img width="961" alt="image" src="https://user-images.githubusercontent.com/90290626/163745073-0a59e0b2-51b9-46c8-895b-7061a9d6d2e3.png">
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+ 
+<img width="900" alt="image" src="https://user-images.githubusercontent.com/90290626/163743984-6ea2ffbc-9fff-469c-83b6-504c850de490.png">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Carrito 
+<img width="900" alt="image" src="https://user-images.githubusercontent.com/90290626/163745047-3a5ef9d1-2237-4345-826f-6780b24e7787.png">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img width="567" alt="image" src="https://user-images.githubusercontent.com/90290626/163745157-ce6bd25e-d76d-485c-b28c-712ade5e2c64.png">
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Admin  Login
 
-### Analyzing the Bundle Size
+Usuario: dsp5502@gmail.com
+Clave: 12345678
+<img width="300" alt="image" src="https://user-images.githubusercontent.com/90290626/163745280-91bac6ab-a91d-45ba-a12a-49143fe403ee.png">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Agregar Nuevo Producto
+<img width="786" alt="image" src="https://user-images.githubusercontent.com/90290626/163745416-17878a9a-e328-45fd-9f28-d8cca8d5e5d2.png">
 
-### Making a Progressive Web App
+<img width="502" alt="image" src="https://user-images.githubusercontent.com/90290626/163745516-c0550452-7813-4f2d-ac54-52ee6ef8f4ea.png">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Listado y busqueda de productos
 
-### Advanced Configuration
+<img width="767" alt="image" src="https://user-images.githubusercontent.com/90290626/163745568-010eb6f2-ebff-40c5-ae8b-dd4d05c81ac5.png">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# WakaTime
+<img width="787" alt="image" src="https://user-images.githubusercontent.com/90290626/163745679-510caeb3-7a87-48d8-98ce-616efd2d01f8.png">
+<img width="731" alt="image" src="https://user-images.githubusercontent.com/90290626/163745709-697d4c20-4d07-4f0d-822f-3f9c4a0e8fa3.png">
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- dsp5502@gmail.com****
